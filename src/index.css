@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core Colors */
+  --bg-color: #f8f9fa;
+  --text-color: #111111;
+  --text-muted: #6b7280;
+  --text-dim: #9ca3af;
+  --border-color: #e5e7eb;
+  
+  /* Accent */
+  --accent-color: #2563eb;
+  --accent-muted: rgba(37, 99, 235, 0.1);
+
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Layout */
+  --container-width: 1200px;
+  --spacing-unit: 1rem;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0c0c0c;
+  --text-color: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-dim: #52525b;
+  --border-color: #27272a;
+  
+  --accent-color: #3b82f6;
+  --accent-muted: rgba(59, 130, 246, 0.15);
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enforce dark theme as default if script hasn't loaded */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Managed by Tailwind */
+
+/* Layout */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+}
+
+/* Grid overlay for "research lab" aesthetic */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: 
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 5vw 5vw;
+  opacity: 0.03;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Utilities managed by Tailwind */
+
+/* Button reset */
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
