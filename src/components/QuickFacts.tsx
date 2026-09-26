@@ -8,10 +8,10 @@ const QuickFacts = () => {
         <div>
           <h3 className="font-mono text-tiny text-muted mb-4">EDUCATION</h3>
           <div className="font-sans text-small">
-            <p>{experience.education.degree}</p>
-            <p className="text-muted">{experience.education.university}</p>
+            <p className="text-muted">{experience.education.degree}</p>
+            <p className="mt-1 text-white">Minor Specialisation: {experience.education.minor}</p>
+            <p className="text-muted mt-2">{experience.education.university}</p>
             <p className="text-dim mt-1">{experience.education.period}</p>
-            <p className="text-dim mt-4">Minor: {experience.education.minor}</p>
           </div>
         </div>
 

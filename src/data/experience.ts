@@ -3,7 +3,7 @@ export const experience = {
     degree: "B.Tech Civil Engineering",
     university: "Punjab Engineering College",
     period: "2024–2028",
-    minor: "Data Science"
+    minor: "Data Science Engineering"
   },
   roles: [
     {

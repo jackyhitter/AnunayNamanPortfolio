@@ -63,11 +63,11 @@ const About = () => {
           <div className="mb-12">
             <h3 className="font-sans text-small text-white mb-2">Punjab Engineering College</h3>
             <div className="font-mono text-tiny text-dim mb-1">B.Tech • 2024–2028</div>
-            <div className="font-mono text-tiny text-accent">Minor: Data Science</div>
+            <div className="font-mono text-tiny text-accent">Minor Specialisation: Data Science Engineering</div>
           </div>
 
           <div>
-            <h3 className="font-sans text-small text-white mb-4">Data Science Minor Curriculum</h3>
+            <h3 className="font-sans text-small text-white mb-4">Data Science Engineering Minor Curriculum</h3>
             <ul className="font-mono text-tiny text-dim flex flex-col gap-3">
               <li className="flex justify-between border-b border-[#27272a] pb-2">
                 <span>Python for Data Science</span>
