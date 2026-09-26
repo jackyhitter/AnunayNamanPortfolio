@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
+import Hero from './components/Hero/Hero';
 import QuickFacts from './components/QuickFacts';
-import About from './components/About';
-import Projects from './components/Projects';
+import About from './components/About/About';
+import CurrentlyBuilding from './components/CurrentlyBuilding/CurrentlyBuilding';
+import ExploreWorld from './components/Explore/Explore';
+import SelectedWork from './components/Work/SelectedWork';
 import SideQuests from './components/SideQuests';
-import CurrentlyBuilding from './components/CurrentlyBuilding';
-import Skills from './components/Skills';
-import LeetCode from './components/LeetCode';
-import GitHub from './components/GitHub';
-import Books from './components/Books';
-import Cinema from './components/Cinema';
+import LeetCode from './components/Algorithms/LeetCode';
+import LearningLog from './components/Learning/LearningLog';
+import SkillMap from './components/Skills/SkillMap';
+import AfterHours from './components/AfterHours/AfterHours';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -49,17 +49,40 @@ function App() {
       <Navigation />
       
       <main>
+        {/* 01 — HERO: Interactive identity network + anime particle artwork */}
         <Hero />
+        
+        {/* 02 — QUICK FACTS */}
         <QuickFacts />
+        
+        {/* 03 — ABOUT / SYSTEM + EDUCATION + DATA SCIENCE */}
         <About />
+        
+        {/* 04 — CURRENTLY BUILDING: Live status board */}
         <CurrentlyBuilding />
-        <Projects />
+        
+        {/* 05 — EXPLORE WORLD: ITom-inspired spatial navigation */}
+        <ExploreWorld />
+        
+        {/* 06 — SELECTED WORK: Compact project index */}
+        <SelectedWork />
+        
+        {/* 07 — LAB: Rainbow Box + Scribble + Experiments */}
         <SideQuests />
+        
+        {/* 08 — ALGORITHMIC PRACTICE: Dynamic LeetCode + DSA Map */}
         <LeetCode />
-        <GitHub />
-        <Skills />
-        <Books />
-        <Cinema />
+        
+        {/* 09 — LEARNING LOG: Striver, Love Babbar, Krish Naik, Hitesh */}
+        <LearningLog />
+        
+        {/* 10 — SKILLS / SYSTEM MAP */}
+        <SkillMap />
+        
+        {/* 11 — AFTER HOURS: Anime, Manga, Games, F1, Football, Art, Rabbit Holes */}
+        <AfterHours />
+        
+        {/* 12 — CONTACT */}
         <Contact />
       </main>
 

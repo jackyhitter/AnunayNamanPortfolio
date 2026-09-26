@@ -51,15 +51,15 @@ export const projects: Project[] = [
     architecture: ["Raw Data", "Data Ingestion", "Data Transformation", "Model Training", "Evaluation", "Prediction Pipeline", "Flask Application"]
   },
   {
-    id: "offlinemarket",
-    title: "OfflineMarket",
-    subtitle: "A small early product experiment.",
-    type: "experiment",
-    maturity: "EXPERIMENT",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MongoDB"],
-    repository: "jackyhitter / offlinemarket",
-    githubUrl: "https://github.com/jackyhitter/offlinemarket",
-    description: "An early experiment in building offline-first marketplace features."
+    id: "networksecurity",
+    title: "Network Security",
+    subtitle: "Security & Packet Analysis.",
+    type: "featured",
+    maturity: "RESEARCH",
+    technologies: ["Python", "Scapy", "Flask", "Docker", "Networking"],
+    repository: "jackyhitter / networksecurity",
+    githubUrl: "https://github.com/jackyhitter/networksecurity",
+    description: "A deep dive into network security, packet analysis, and building systems to monitor and understand network traffic."
   }
 ];
 

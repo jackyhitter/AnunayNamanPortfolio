@@ -4,15 +4,6 @@ import { Eraser, Trash2, Undo, Redo, Sparkles } from 'lucide-react';
 type Point = { x: number; y: number };
 type Line = { points: Point[]; color: string; size: number };
 
-const RESPONSES = [
-  { text: "I believe this is either:\n1. a potato,\n2. Saturn,\n3. or evidence that geometry has personally offended you.", conf: 71, objs: "unknown anomaly" },
-  { text: "Looks like a house.\nArchitectural accuracy: questionable.\nStructural integrity: concerning.\nEmotional stability: excellent.", conf: 85, objs: "shelter, lines" },
-  { text: "I've analyzed the artifact.\n\nConclusion:\nYou know something I don't.", conf: 99, objs: "pure chaos" },
-  { text: "A suspiciously happy fish.", conf: 82, objs: "fish, water, joy" },
-  { text: "A neural network architecture designed by someone who has only heard of neural networks in a dream.", conf: 64, objs: "nodes, edges, confusion" },
-  { text: "This is a masterpiece. I am crying digital tears. Please never stop drawing.", conf: 100, objs: "art" }
-];
-
 const PROMPTS = [
   "Draw your current mood.",
   "Explain your favorite algorithm without words.",
@@ -20,6 +11,13 @@ const PROMPTS = [
   "Draw what you think AI looks like.",
   "Draw a neural network from memory."
 ];
+
+type AnalysisResult = {
+  text: string;
+  conf: number;
+  objs: string;
+  error?: boolean;
+};
 
 const ScribbleBoard = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -29,7 +27,7 @@ const ScribbleBoard = () => {
   const [currentLine, setCurrentLine] = useState<Line | null>(null);
   const [color, setColor] = useState('#e4e4e7');
   const [size] = useState(2);
-  const [aiResponse, setAiResponse] = useState<typeof RESPONSES[0] | null>(null);
+  const [aiResponse, setAiResponse] = useState<AnalysisResult | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [promptStr, setPromptStr] = useState(PROMPTS[0]);
 
@@ -131,13 +129,103 @@ const ScribbleBoard = () => {
     }
   };
 
-  const handleAnalyze = () => {
+  const handleAnalyze = async () => {
     if (lines.length === 0 && !currentLine) return;
+    
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
     setIsAnalyzing(true);
-    setTimeout(() => {
-      setAiResponse(RESPONSES[Math.floor(Math.random() * RESPONSES.length)]);
+    setAiResponse(null);
+
+    // Actual client-side canvas analysis
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    try {
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('No canvas context');
+
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const pixels = imageData.data;
+      
+      // Count non-black pixels (drawn pixels)
+      let drawnPixels = 0;
+      let minX = canvas.width, maxX = 0, minY = canvas.height, maxY = 0;
+      
+      for (let i = 0; i < pixels.length; i += 4) {
+        const r = pixels[i], g = pixels[i+1], b = pixels[i+2], a = pixels[i+3];
+        if (a > 20 && (r > 30 || g > 30 || b > 30)) {
+          drawnPixels++;
+          const px = (i / 4) % canvas.width;
+          const py = Math.floor((i / 4) / canvas.width);
+          if (px < minX) minX = px;
+          if (px > maxX) maxX = px;
+          if (py < minY) minY = py;
+          if (py > maxY) maxY = py;
+        }
+      }
+
+      const totalPixels = canvas.width * canvas.height;
+      const coverage = (drawnPixels / totalPixels) * 100;
+      const strokeCount = lines.length;
+      const bboxWidth = maxX - minX;
+      const bboxHeight = maxY - minY;
+      const aspectRatio = bboxWidth > 0 && bboxHeight > 0 ? (bboxWidth / bboxHeight).toFixed(2) : '0';
+      const density = bboxWidth > 0 && bboxHeight > 0 
+        ? (drawnPixels / (bboxWidth * bboxHeight) * 100).toFixed(1) 
+        : '0';
+
+      // Generate interpretation based on real drawing properties
+      let interpretation = '';
+      let detectedPattern = '';
+      const conf = Math.min(95, Math.max(40, Math.round(coverage * 8 + strokeCount * 3)));
+
+      if (strokeCount === 0) {
+        interpretation = "You clicked analyze on a blank canvas.\nBold move.";
+        detectedPattern = 'void';
+      } else if (strokeCount === 1 && coverage < 1) {
+        interpretation = "A single, decisive stroke.\nMinimalism or indecision — hard to tell.";
+        detectedPattern = 'single stroke';
+      } else if (coverage > 15) {
+        interpretation = "Heavy coverage detected.\nEither you're very expressive or very frustrated with the canvas.";
+        detectedPattern = 'dense composition';
+      } else if (strokeCount > 15) {
+        interpretation = `${strokeCount} strokes detected.\nThis has the energy of someone who kept adding "just one more line."`;
+        detectedPattern = 'complex sketch';
+      } else if (Number(aspectRatio) > 2) {
+        interpretation = "Wide horizontal composition.\nLandscape? Timeline? System architecture diagram at 2 AM?";
+        detectedPattern = 'horizontal layout';
+      } else if (Number(aspectRatio) < 0.5) {
+        interpretation = "Tall vertical composition.\nA tower? A tree? A stack trace?";
+        detectedPattern = 'vertical layout';
+      } else if (strokeCount <= 3 && coverage < 3) {
+        interpretation = "Simple and restrained.\nA few deliberate marks — either a face, a symbol, or the letter 'hi'.";
+        detectedPattern = 'simple glyph';
+      } else if (Number(density) > 30) {
+        interpretation = "Densely packed strokes in a focused area.\nConcentrated energy. Possibly a face. Possibly chaos.";
+        detectedPattern = 'concentrated form';
+      } else {
+        interpretation = `${strokeCount} strokes across ${coverage.toFixed(1)}% of the canvas.\nScattered but intentional. Like notes on a whiteboard.`;
+        detectedPattern = 'scattered composition';
+      }
+
+      setAiResponse({
+        text: interpretation,
+        conf: conf,
+        objs: `${strokeCount} strokes, ${coverage.toFixed(1)}% coverage, ${detectedPattern}`,
+        error: false
+      });
+
+    } catch {
+      setAiResponse({
+        text: "Canvas analysis failed.\nThe drawing exists but I couldn't read it.",
+        conf: 0,
+        objs: "error",
+        error: true
+      });
+    } finally {
       setIsAnalyzing(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -209,13 +297,15 @@ const ScribbleBoard = () => {
           )}
 
           {aiResponse && !isAnalyzing && (
-            <div className="mt-4 border border-[#27272a] p-4 text-small font-sans bg-black">
+            <div className={`mt-4 border p-4 text-small font-sans bg-black ${aiResponse.error ? 'border-red-900' : 'border-[#27272a]'}`}>
               <div className="font-mono text-tiny text-muted mb-2 border-b border-[#27272a] pb-2">MODEL INTERPRETATION</div>
-              <p className="whitespace-pre-line mb-4 text-dim">"{aiResponse.text}"</p>
-              <div className="font-mono text-tiny flex flex-col gap-1 text-[#a1a1aa]">
-                <div>Objects: {aiResponse.objs}</div>
-                <div>Confidence: <span className="text-accent">{aiResponse.conf}%</span></div>
-              </div>
+              <p className={`whitespace-pre-line mb-4 ${aiResponse.error ? 'text-red-400' : 'text-dim'}`}>"{aiResponse.text}"</p>
+              {!aiResponse.error && (
+                <div className="font-mono text-tiny flex flex-col gap-1 text-[#a1a1aa]">
+                  <div>Objects: {aiResponse.objs}</div>
+                  <div>Confidence: <span className="text-accent">{aiResponse.conf}%</span></div>
+                </div>
+              )}
             </div>
           )}
         </div>

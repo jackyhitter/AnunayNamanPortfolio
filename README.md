@@ -1,60 +1,99 @@
-# Anunay Naman — Personal Portfolio
+# Anunay Naman — Portfolio
 
-A one-of-a-kind, editorially-driven personal portfolio designed to reflect a deep curiosity for systems, machine learning, and algorithms. This project serves not just as a resume, but as a digital notebook, a lab, and a narrative of continuous learning.
+A one-of-a-kind, interactive developer portfolio designed as a digital world. This is not a resume website — it's a spatial experience that progressively reveals technical depth, learning journey, and personal curiosity.
 
 ## About Me
 **Anunay Naman**  
-*Machine Learning × Backend × Algorithms*
+*Machine Learning × Data Science × Backend × Algorithms × Systems*
 
-I am a developer who studies Civil Engineering at Punjab Engineering College but spends most of my time building and breaking software systems. I specialize in Python and C++ and am constantly building towards stronger backend architecture and ML engineering skills. 
-
-I enjoy understanding systems deeply enough to rebuild them. My work focuses on real-time computer vision applications (like city-scale ANPR), end-to-end ML pipelines, and competitive programming (DSA).
+I like understanding systems deeply enough to rebuild them, then breaking them again to see where they fail. My work focuses on real-time computer vision applications (like city-scale ANPR), end-to-end ML pipelines, backend architecture, and competitive programming.
 
 ## Tech Stack
 
 ### Built With:
 - **Framework:** React + TypeScript (via Vite)
-- **Styling:** Tailwind CSS (for semantic, responsive grids) + Vanilla CSS (for custom variables and design system integration)
-- **Animations:** GSAP (GreenSock Animation Platform) for complex orchestration and entry sequences
-- **Scrolling:** Lenis for buttery-smooth native scrolling physics
-- **Icons:** Lucide React & custom SVGs
+- **Styling:** Tailwind CSS + Vanilla CSS (custom design system)
+- **3D / Particles:** Three.js (WebGL particle morphing system)
+- **Animations:** GSAP + ScrollTrigger (cinematic sequences, spatial navigation)
+- **Scrolling:** Lenis (buttery-smooth physics)
+- **Icons:** Lucide React
 
 ### My Personal Tech Stack:
-- **Machine Learning:** PyTorch, Scikit-learn, CatBoost, Computer Vision (YOLOv8, OpenCV), Pandas, NumPy
-- **Backend:** Python (FastAPI, Flask), Node.js, Express, PostgreSQL, PostGIS, MongoDB
-- **Algorithms / Systems:** C++, Data Structures, Docker, Git, Linux
+- **Machine Learning:** PyTorch, Scikit-learn, CatBoost, XGBoost, Computer Vision (YOLOv8, OpenCV), Pandas, NumPy
+- **Data Science:** Python, Statistics, EDA, Feature Engineering, MLOps, MLflow, DVC
+- **Backend:** Node.js, Express, FastAPI, Flask, MongoDB, PostgreSQL, PostGIS, Docker
+- **Algorithms:** C++, DSA (Striver A2Z), Dynamic Programming, Graphs, Trees
+- **Frontend:** React, TypeScript, JavaScript, Tailwind, Three.js, GSAP
 
-## Getting Started in VS Code
+## Architecture
 
-To run this project locally, follow these steps:
+```
+src/
+├── data/                    # Centralized data (no hardcoded JSX)
+│   ├── profile.ts           # Identity & links
+│   ├── projects.ts          # Project definitions
+│   ├── learning.ts          # Course/resource data
+│   ├── afterHours.ts        # Anime, games, F1, football, etc.
+│   ├── particleForms.ts     # Particle silhouette point clouds
+│   └── skills.ts            # Skill clusters
+│
+├── components/
+│   ├── Hero/                # Interactive identity network + anime particles
+│   │   ├── Hero.tsx
+│   │   ├── HeroNetwork.tsx
+│   │   └── ParticleCharacter.tsx
+│   ├── About/               # System narrative + education
+│   ├── CurrentlyBuilding/   # Horizontal-scroll status board
+│   ├── Explore/             # ITom-inspired spatial world (GSAP ScrollTrigger)
+│   ├── Work/                # Compact project index
+│   ├── Algorithms/          # LeetCode stats + DSA knowledge graph
+│   ├── Learning/            # Course timeline (Striver, Krish Naik, etc.)
+│   ├── Skills/              # Interconnected skill clusters
+│   ├── AfterHours/          # Anime, games, F1, football, rabbit holes
+│   └── ...
+│
+└── App.tsx                  # Section flow orchestration
+```
 
-1. **Open the folder in VS Code:**
-   Open this directory in Visual Studio Code.
+## Section Flow
 
-2. **Install dependencies:**
-   Open the integrated terminal (`Ctrl` + `` ` ``) and run:
-   ```bash
-   npm install
-   ```
+| # | Section | Description |
+|---|---------|-------------|
+| 01 | **Hero** | Radial identity network + WebGL particle anime artwork |
+| 02 | **Quick Facts** | At-a-glance identity |
+| 03 | **About** | System narrative + Education + Data Science |
+| 04 | **Currently Building** | Horizontal-scroll developer status board |
+| 05 | **Explore World** | Spatial navigation — 4 interactive rooms |
+| 06 | **Selected Work** | Compact project links |
+| 07 | **Lab** | Rainbow Box (live embed) + Scribble recognition |
+| 08 | **Algorithmic Practice** | Dynamic LeetCode + DSA topic map |
+| 09 | **Learning Log** | Striver, Love Babbar, Krish Naik, Hitesh Choudhary |
+| 10 | **Skill Map** | Interconnected technology clusters |
+| 11 | **After Hours** | Anime, Manga, Games, F1, Football, Art, Rabbit Holes |
+| 12 | **Contact** | GitHub, LinkedIn, LeetCode, Email, Resume |
 
-3. **Start the development server:**
-   Once the installation is complete, run:
-   ```bash
-   npm run dev
-   ```
+## Commands
 
-4. **View the site:**
-   `vite` will provide a local URL (typically `http://localhost:5173/`). Click the link or open it in your browser.
+```bash
+# Install dependencies
+npm install
 
-## Project Structure
+# Run dev server
+npm run dev
 
-- `src/data/` - All centralized content (projects, profile, skills, etc.) lives here. Update these files to change the site content without touching the UI components.
-- `src/components/` - Individual sections and widgets of the portfolio (Hero, Projects, SideQuests, ScribbleBoard).
-- `src/index.css` - Base styling, typography, and CSS variables.
-- `src/App.tsx` - Main layout wrapper and scroll initialization.
+# Production build
+npm run build
 
-## "The Fun Side" (Lab / Playground)
-This portfolio includes a "Side Quests" section containing a custom Scribble Board, an interactive AI demo interaction, and a visual history of my early JavaScript projects.
+# Preview production build
+npm run preview
+```
 
----
-*Built with curiosity and questionable sleep schedules.*
+## Links
+
+- **GitHub:** https://github.com/jackyhitter
+- **LinkedIn:** https://www.linkedin.com/in/anunaynaman/
+- **LeetCode:** https://leetcode.com/u/anunaynaman/
+
+## License
+
+This project is personal. Code structure may be referenced but please do not copy the design wholesale.

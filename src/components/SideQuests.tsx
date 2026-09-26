@@ -26,13 +26,13 @@ const SideQuests = () => {
           )}
         </div>
         <div className="md:col-span-7 md:col-start-6">
-          <div className="aspect-video bg-[#0c0c0c] border border-[#27272a] relative overflow-hidden group cursor-crosshair">
-             {/* Fake interactive preview */}
-             <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111), linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111)', backgroundSize: '20px 20px', backgroundPosition: '0 0, 10px 10px' }}></div>
-             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-tr from-red-500 via-yellow-500 to-blue-500 animate-[spin_3s_linear_infinite] group-hover:scale-110 transition-transform blur-sm opacity-80"></div>
-             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#0c0c0c] border border-[#27272a] flex items-center justify-center font-mono text-tiny text-dim group-hover:text-accent group-hover:border-accent transition-colors">
-               BOX
-             </div>
+          <div className="aspect-video w-full border-0 relative">
+            <div className="container2 flex items-center justify-center">
+              <div className="absolute top-4 left-0 w-full text-center font-sans font-bold text-white tracking-widest opacity-80 pointer-events-none drop-shadow-md px-4">
+                I CHALLENGE YOU TO GRAB THIS HI BUTTON
+              </div>
+              <div className="anima">hi</div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,21 +65,31 @@ const SideQuests = () => {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {['To-Do App', 'Quiz App', 'Expense Tracker', 'Weather App', 'E-Commerce Cart'].map((app, i) => (
-                <div key={app} className="border border-[#27272a] bg-[#0c0c0c] p-4 group hover:border-accent transition-colors flex flex-col justify-between">
+              {[
+                { name: 'To-Do App', skill: 'DOM', url: 'https://jackyhitter.github.io/jsBeginnerProjects/to-do', tease: 'Go on, add something.' },
+                { name: 'Quiz App', skill: 'Events', url: 'https://jackyhitter.github.io/jsBeginnerProjects/quizApp', tease: 'Think you can score 100%?' },
+                { name: 'Expense Tracker', skill: 'Storage', url: 'https://jackyhitter.github.io/jsBeginnerProjects/expenseTracker', tease: 'Track where it all goes.' },
+                { name: 'Weather App', skill: 'APIs', url: 'https://jackyhitter.github.io/jsBeginnerProjects/ApiHandler', tease: 'Real data. Live API.' },
+                { name: 'E-Commerce Cart', skill: 'Async', url: 'https://jackyhitter.github.io/jsBeginnerProjects/ecomerseCart', tease: 'Add to cart. You know you want to.' },
+              ].map((app, i) => (
+                <a 
+                  key={app.name} 
+                  href={app.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="border border-[#27272a] bg-[#0c0c0c] p-4 group hover:border-accent transition-colors flex flex-col justify-between cursor-pointer"
+                >
                   <div>
                     <div className="font-mono text-tiny text-muted mb-2">0{i+1}</div>
-                    <div className="font-sans text-small font-medium">{app}</div>
+                    <div className="font-sans text-small font-medium group-hover:text-accent transition-colors">{app.name}</div>
                   </div>
                   <div className="mt-6 flex justify-between items-center">
-                    <div className="font-mono text-[10px] text-dim">{['DOM', 'Events', 'Storage', 'APIs', 'Async'][i]}</div>
-                    {jsBeginner?.liveUrl && (
-                      <a href={jsBeginner.liveUrl} target="_blank" rel="noopener noreferrer" className="text-dim hover:text-accent transition-colors">
-                        <ExternalLink size={14}/>
-                      </a>
-                    )}
+                    <div className="font-mono text-[10px] text-dim">{app.skill}</div>
+                    <div className="font-mono text-[10px] text-dim opacity-0 group-hover:opacity-100 transition-opacity text-accent">
+                      {app.tease} →
+                    </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

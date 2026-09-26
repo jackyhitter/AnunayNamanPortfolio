@@ -5,7 +5,7 @@ export const profile = {
   subTagline: "Machine learning, backend systems and algorithms — with an unreasonable curiosity for how things work.",
   location: "Chandigarh / India",
   university: "Punjab Engineering College",
-  email: "anunay.naman@example.com", // Placeholder
+  email: "anunaynaman10@gmail.com",
   github: "https://github.com/jackyhitter",
   linkedin: "https://www.linkedin.com/in/anunaynaman/",
   leetcode: "https://leetcode.com/u/anunaynaman/",

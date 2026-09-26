@@ -117,3 +117,71 @@ button {
   font: inherit;
   cursor: pointer;
 }
+
+/* --- Rainbow Box Styles --- */
+.container2 {
+    border: 2px solid blue;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(225deg, rgba(255, 0, 0, 0.621),rgba(255, 166, 0, 0.621),rgba(255, 255, 0, 0.533),rgba(0, 128, 0, 0.599),rgba(0, 0, 255, 0.697),rgba(76, 0, 130, 0.588),rgba(238, 130, 238, 0.599));
+    overflow: hidden;
+    position: relative;
+}
+
+.anima {
+    height: 5rem;
+    width: 10rem;
+    --animation_state: running;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .15rem double red;
+    background-image: repeating-linear-gradient(45deg, rgba(234, 49, 49, 0.511), rgba(105, 105, 243, 0.79));
+    border-radius: 10%;
+    position: absolute;
+    animation-name: diagonal;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    animation-timing-function: cubic-bezier(.7, .07, .07, .7);
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-play-state: var(--animation_state);
+    transition: all 2s ease;
+    color: white;
+}
+
+.anima:hover {
+    --animation_state: paused;
+    transform-origin: 300px 300px; /* Wide origin so it swings away and escapes the mouse */
+    transform: rotate(180deg);
+}
+
+@keyframes diagonal {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    25% {
+        top: calc(100% - 5rem);
+        left: calc(100% - 10rem);
+        border-radius: 0%;
+        background-image: repeating-linear-gradient(135deg, green, orange, yellow);
+    }
+    50% {
+        top: calc(100% - 5rem);
+        left: 0;
+        background-image: repeating-linear-gradient(225deg, indigo, violet);
+    }
+    75% {
+        top: 0;
+        left: calc(100% - 10rem);
+        background-image: repeating-linear-gradient(45deg, yellow, orange , red);
+    }
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
