@@ -80,20 +80,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Top Navigation Overlay */}
-      <div className="hero-nav absolute top-0 left-0 w-full p-8 flex justify-between items-center z-20 font-mono text-tiny">
-        <div className="tracking-widest">ANUNAY_NAMAN</div>
-        <div className="hidden md:flex gap-8">
-          <a href="#work" className="hover:text-accent transition-colors">[WORK]</a>
-          <a href="#about" className="hover:text-accent transition-colors">[ABOUT]</a>
-          <a href="#explore" className="hover:text-accent transition-colors">[EXPLORE]</a>
-          <a href="#lab" className="hover:text-accent transition-colors">[LAB]</a>
-        </div>
-        <div className="flex items-center gap-2 text-accent">
-          <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-          [ONLINE]
-        </div>
-      </div>
+
 
       {/* Scroll indicator */}
       <div className="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] text-dim flex flex-col items-center gap-2">
