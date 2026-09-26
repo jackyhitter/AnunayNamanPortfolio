@@ -95,6 +95,18 @@ export const afterHoursData: InterestCategory[] = [
     ]
   },
   {
+    id: 'music',
+    label: 'MUSIC / HIP-HOP',
+    color: '#fbbf24',
+    subtitle: 'Bars, beats, and poetry.',
+    items: [
+      { title: 'Eminem (Stan)', desc: 'The technical proficiency, the rhyme schemes, the storytelling. Forever a Stan.', theme: 'LYRICISM / TECHNICALITY / GOAT' },
+      { title: 'Old School Hiphop', desc: 'Biggie, Nas, and the golden era. The foundation of the culture.', theme: 'BOOM BAP / STORYTELLING / ROOTS' },
+      { title: 'Desi Hip Hop (DHH)', desc: 'The revolution of sound in the subcontinent. Talha Anjum, Seedhe Maut, Umair.', theme: 'CULTURE / REVOLUTION / BARS' },
+      { title: 'Current Rotations', desc: 'Arzu, Seedhe Maut\'s entire discography, Umair\'s new album, Talha Anjum.', theme: 'ON REPEAT / VIBES' },
+    ]
+  },
+  {
     id: 'rabbitholes',
     label: 'RABBIT HOLES',
     color: '#a78bfa',

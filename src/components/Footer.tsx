@@ -4,26 +4,26 @@ const Footer = () => {
   const [exitState, setExitState] = useState(0);
 
   return (
-    <footer className="border-t border-[#27272a] py-12 container flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-      <div>
-        <div className="font-sans text-small mb-1">ANUNAY NAMAN</div>
-        <div className="font-mono text-tiny text-muted">ML / BACKEND / DSA</div>
+    <footer className="w-full border-t border-[#27272a] bg-[#050505] pt-12 pb-16 px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 relative z-50">
+      <div className="flex flex-col gap-2">
+        <div className="font-sans text-small font-bold text-white tracking-widest uppercase">ANUNAY NAMAN</div>
+        <div className="font-mono text-[10px] md:text-tiny text-accent">ML / BACKEND / DSA</div>
+        
+        <div className="font-mono text-[10px] mt-4">
+          {exitState === 0 && (
+            <button onClick={() => setExitState(1)} className="text-dim hover:text-white transition-colors cursor-text">
+              <span className="text-accent">{'>'}</span> exit?
+            </button>
+          )}
+          {exitState === 1 && (
+            <span className="text-white animate-pulse">not yet.</span>
+          )}
+        </div>
       </div>
       
-      <div className="font-mono text-tiny text-dim text-right">
-        <p className="mb-2">Built with: React / TypeScript / curiosity / questionable sleep schedules</p>
-        <p>© 2026 Anunay Naman</p>
-      </div>
-      
-      <div className="font-mono text-tiny">
-        {exitState === 0 && (
-          <button onClick={() => setExitState(1)} className="text-dim hover:text-accent transition-colors cursor-text">
-            {'>'} exit?
-          </button>
-        )}
-        {exitState === 1 && (
-          <span className="text-white">not yet.</span>
-        )}
+      <div className="font-mono text-[10px] md:text-tiny text-dim flex flex-col gap-2 md:text-right border-l border-[#27272a] md:border-l-0 md:border-r border-[#27272a] pl-4 md:pl-0 md:pr-4 py-1">
+        <p>Built with: React / TypeScript / curiosity / questionable sleep schedules</p>
+        <p className="opacity-50">© 2026 Anunay Naman. All systems nominal.</p>
       </div>
     </footer>
   );

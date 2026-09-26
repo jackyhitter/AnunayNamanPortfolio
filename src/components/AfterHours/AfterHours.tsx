@@ -294,6 +294,7 @@ const AfterHours = () => {
               {activeCategory === 'football' && '"Football is tactical geometry with 22 moving variables."'}
               {activeCategory === 'art' && '"Not everything needs to be functional to be worth building."'}
               {activeCategory === 'movies' && '"Cinema is just storytelling through systems of light."'}
+              {activeCategory === 'music' && '"Hip-hop is just poetry delivered with rhythm and attitude."'}
               {activeCategory === 'rabbitholes' && '"The internet is the greatest rabbit hole ever constructed."'}
             </div>
           </div>
