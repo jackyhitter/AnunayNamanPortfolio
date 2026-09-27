@@ -243,17 +243,17 @@ const ScribbleBoard = () => {
 
   return (
     <div className="relative group/board">
-      <div className="font-mono text-tiny text-dim mb-4 absolute -top-12 left-0 hidden md:block rotate-[-2deg]">
+      <div className="font-code text-tiny mb-4 absolute -top-12 left-0 hidden md:block rotate-[-2deg]" style={{ color: 'var(--text-muted)' }}>
         "proof that engineers cannot draw"
       </div>
-      <div className="font-mono text-tiny text-dim mb-4 absolute -right-4 top-20 hidden md:block rotate-[5deg] origin-left">
+      <div className="font-code text-tiny mb-4 absolute -right-4 top-20 hidden md:block rotate-[5deg] origin-left" style={{ color: 'var(--text-muted)' }}>
         "system architecture at 2 AM"
       </div>
       
       <div className="border border-[#27272a] bg-[#0c0c0c] p-1 flex flex-col md:flex-row gap-4">
         
         <div className="flex-1 relative">
-          <div className="absolute top-4 left-4 font-mono text-tiny text-muted pointer-events-none opacity-50 select-none">
+          <div className="absolute top-4 left-4 font-code text-tiny pointer-events-none select-none" style={{ color: 'var(--text-muted)', opacity: 0.6 }}>
             {promptStr}
           </div>
           <canvas
@@ -290,8 +290,8 @@ const ScribbleBoard = () => {
         </div>
 
         <div className="w-full md:w-64 flex flex-col gap-4 p-4 border-l border-[#27272a] bg-[#0a0a0a]">
-          <h3 className="font-mono text-tiny text-muted">SCRIBBLE BOARD</h3>
-          <p className="font-serif text-small text-dim italic">Go ahead. Draw your masterpiece. Or whatever that is.</p>
+          <h3 className="font-code text-tiny" style={{ color: 'var(--text-muted)' }}>SCRIBBLE BOARD</h3>
+          <p className="font-serif text-small italic" style={{ color: 'var(--text-dim)' }}>Go ahead. Draw your masterpiece. Or whatever that is.</p>
           
           <button 
             onClick={handleAnalyze} 
@@ -303,7 +303,7 @@ const ScribbleBoard = () => {
           </button>
 
           {isAnalyzing && (
-            <div className="mt-4 font-mono text-tiny text-dim animate-pulse">
+            <div className="mt-4 font-code text-tiny animate-pulse" style={{ color: 'var(--text-muted)' }}>
               {'>'} sending artifact to model...<br/>
               {'>'} computing probabilities...
             </div>
@@ -311,12 +311,12 @@ const ScribbleBoard = () => {
 
           {aiResponse && !isAnalyzing && (
             <div className={`mt-4 border p-4 text-small font-sans bg-black ${aiResponse.error ? 'border-red-900' : 'border-[#27272a]'}`}>
-              <div className="font-mono text-tiny text-muted mb-2 border-b border-[#27272a] pb-2">MODEL INTERPRETATION</div>
-              <p className={`whitespace-pre-line mb-4 ${aiResponse.error ? 'text-red-400' : 'text-dim'}`}>"{aiResponse.text}"</p>
+              <div className="font-code text-tiny border-b border-[#27272a] pb-2 mb-2" style={{ color: 'var(--text-muted)' }}>MODEL INTERPRETATION</div>
+              <p className={`whitespace-pre-line mb-4 ${aiResponse.error ? 'text-red-400' : ''}`} style={aiResponse.error ? {} : { color: 'var(--text-muted)' }}>"{aiResponse.text}"</p>
               {!aiResponse.error && (
-                <div className="font-mono text-tiny flex flex-col gap-1 text-[#a1a1aa]">
+                <div className="font-code text-tiny flex flex-col gap-1" style={{ color: 'var(--text-dim)' }}>
                   <div>Objects: {aiResponse.objs}</div>
-                  <div>Confidence: <span className="text-accent">{aiResponse.conf}%</span></div>
+                  <div>Confidence: <span style={{ color: 'var(--stat-color)' }}>{aiResponse.conf}%</span></div>
                 </div>
               )}
             </div>

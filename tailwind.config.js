@@ -14,11 +14,20 @@ export default {
         border: 'var(--border-color)',
         accent: 'var(--accent-color)',
         'accent-muted': 'var(--accent-muted)',
+        // Status / semantic colors
+        online: 'var(--online-color)',
+        'online-muted': 'var(--online-muted)',
+        // Numbers / stats — warm amber, not blue
+        stat: 'var(--stat-color)',
+        'stat-dim': 'var(--stat-dim)',
+        // Tag / label color
+        tag: 'var(--tag-color)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['"IBM Plex Serif"', 'serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
+        mono: ['"JetBrains Mono"', '"IBM Plex Mono"', 'monospace'],
+        code: ['"JetBrains Mono"', 'monospace'],
       },
       fontSize: {
         'tiny': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.05em' }],

@@ -16,7 +16,7 @@ const SideQuests = () => {
           <div className="font-mono text-tiny text-accent mb-4 border border-accent inline-block px-2 py-1">◌ {rainbowBox?.maturity}</div>
           <h3 className="text-heading mb-4 font-sans">{rainbowBox?.title}</h3>
           <p className="font-serif text-muted mb-8 italic">"Not everything needs a business model."</p>
-          <div className="font-sans text-small text-dim mb-8">
+          <div className="font-sans text-small mb-8" style={{ color: 'var(--text-dim)' }}>
             Sometimes I build because I wondered what would happen. The visitor scrolls to find a moving block and tries to stop it. Just a fun idea.
           </div>
           {rainbowBox?.liveUrl && (
@@ -60,7 +60,7 @@ const SideQuests = () => {
           </div>
 
           <div className="flex-1">
-            <div className="font-sans text-body text-dim mb-8 max-w-2xl">
+            <div className="font-sans text-body mb-8 max-w-2xl" style={{ color: 'var(--text-dim)' }}>
               A collection of smaller applications built while mastering JavaScript fundamentals. Proof that I actually learned the core language before reaching for frameworks.
             </div>
             
@@ -77,15 +77,15 @@ const SideQuests = () => {
                   href={app.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="border border-[#27272a] bg-[#0c0c0c] p-4 group hover:border-accent transition-colors flex flex-col justify-between cursor-pointer"
+                  className="border border-[#27272a] bg-[#0c0c0c] p-4 group transition-all flex flex-col justify-between cursor-pointer hover-bubbly"
                 >
                   <div>
-                    <div className="font-mono text-tiny text-muted mb-2">0{i+1}</div>
+                    <div className="font-code text-tiny mb-2" style={{ color: 'var(--stat-color)', opacity: 0.7 }}>0{i+1}</div>
                     <div className="font-sans text-small font-medium group-hover:text-accent transition-colors">{app.name}</div>
                   </div>
                   <div className="mt-6 flex justify-between items-center">
-                    <div className="font-mono text-[10px] text-dim">{app.skill}</div>
-                    <div className="font-mono text-[10px] text-dim opacity-0 group-hover:opacity-100 transition-opacity text-accent">
+                    <div className="font-code text-[10px]" style={{ color: 'var(--tag-color)' }}>{app.skill}</div>
+                    <div className="font-code text-[10px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--accent-color)' }}>
                       {app.tease} →
                     </div>
                   </div>

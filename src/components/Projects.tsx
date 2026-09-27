@@ -35,7 +35,7 @@ const Projects = () => {
             
             <div className="md:col-span-8 md:col-start-6">
               {/* Abstract visual representation of project instead of generic screenshot */}
-              <div className="aspect-[4/3] bg-[#111] border border-[#27272a] relative overflow-hidden flex items-center justify-center p-8 group-hover:border-accent transition-colors duration-500">
+              <div className="aspect-[4/3] bg-[#111] border border-[#27272a] relative overflow-hidden flex items-center justify-center p-8 group-hover:border-accent transition-colors duration-500 hover-bubbly">
                 <div className="absolute inset-0 opacity-10" style={{
                   backgroundImage: 'radial-gradient(circle at center, var(--accent-color) 1px, transparent 1px)',
                   backgroundSize: '20px 20px'
@@ -56,7 +56,12 @@ const Projects = () => {
                      <div className="flex gap-4 items-center justify-center">
                         <span className="p-2 border border-[#27272a]">DATA</span>
                         <span>→</span>
-                        <span className="p-2 border border-accent text-accent">MODEL</span>
+                        <span className="p-2 border border-accent text-accent group/model relative cursor-help">
+                          MODEL
+                          <span className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black border border-[#27272a] p-2 text-[8px] whitespace-nowrap opacity-0 group-hover/model:opacity-100 transition-opacity pointer-events-none text-dim z-50">
+                            random_state=42: The answer to life, universe & everything.
+                          </span>
+                        </span>
                         <span>→</span>
                         <span className="p-2 border border-[#27272a]">API</span>
                      </div>
@@ -88,7 +93,7 @@ const Projects = () => {
         <h2 className="font-mono text-tiny text-muted mb-8">ARCHIVE / EXPERIMENTS</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[...projects.filter(p => p.type === 'experiment'), ...archiveProjects].map(project => (
-            <a key={project.id} href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="block p-6 border border-[#27272a] bg-[#0a0a0a] hover:border-accent transition-colors group">
+            <a key={project.id} href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="block p-6 border border-[#27272a] bg-[#0a0a0a] transition-colors group hover-bubbly">
               <div className="font-mono text-tiny text-muted mb-4 group-hover:text-accent transition-colors">
                 {project.type === 'experiment' ? 'EARLY EXPERIMENT' : 'ARCHIVED'}
               </div>

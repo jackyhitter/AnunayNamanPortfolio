@@ -37,16 +37,16 @@ const HeroNetwork = () => {
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
-      <svg ref={svgRef} className="w-full h-full opacity-30 transition-transform duration-700 ease-out" style={{ willChange: 'transform' }}>
+      <svg ref={svgRef} className="w-full h-full opacity-50 transition-transform duration-700 ease-out" style={{ willChange: 'transform' }}>
         <defs>
           <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+            <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
           </radialGradient>
         </defs>
         
         {/* Connection Lines */}
-        <g className="stroke-[#27272a] stroke-1">
+        <g className="stroke-[#3f3f46] stroke-1">
           <line x1="20%" y1="30%" x2="50%" y2="15%" />
           <line x1="50%" y1="15%" x2="80%" y2="20%" />
           <line x1="20%" y1="30%" x2="15%" y2="70%" />
@@ -54,10 +54,10 @@ const HeroNetwork = () => {
           <line x1="45%" y1="85%" x2="75%" y2="75%" />
           <line x1="75%" y1="75%" x2="85%" y2="50%" />
           <line x1="85%" y1="50%" x2="80%" y2="20%" />
-          <line x1="20%" y1="30%" x2="50%" y2="50%" className="stroke-accent opacity-20" />
-          <line x1="80%" y1="20%" x2="50%" y2="50%" className="stroke-accent opacity-20" />
-          <line x1="15%" y1="70%" x2="50%" y2="50%" className="stroke-accent opacity-20" />
-          <line x1="75%" y1="75%" x2="50%" y2="50%" className="stroke-accent opacity-20" />
+          <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="var(--accent-color)" strokeOpacity="0.25" />
+          <line x1="80%" y1="20%" x2="50%" y2="50%" stroke="var(--accent-color)" strokeOpacity="0.25" />
+          <line x1="15%" y1="70%" x2="50%" y2="50%" stroke="var(--accent-color)" strokeOpacity="0.25" />
+          <line x1="75%" y1="75%" x2="50%" y2="50%" stroke="var(--accent-color)" strokeOpacity="0.25" />
         </g>
 
         {/* Central Hub (Implicit center for Anunay Naman text) */}
@@ -74,12 +74,14 @@ const HeroNetwork = () => {
               fill="transparent" 
               className="hover:r-8 transition-all duration-300"
             />
-            <circle cx={`${node.x}%`} cy={`${node.y}%`} r={node.radius} fill="#3f3f46" className="group-hover:fill-accent transition-colors" />
+            <circle cx={`${node.x}%`} cy={`${node.y}%`} r={node.radius} fill="#52525b" className="group-hover:fill-accent transition-colors" />
             <text 
               x={`${node.x}%`} 
               y={`${node.y + 3}%`} 
               textAnchor="middle" 
-              className="font-mono text-[10px] fill-dim group-hover:fill-white transition-colors"
+              fontSize="10"
+              fill="var(--text-muted)"
+              style={{ fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.05em' }}
             >
               {node.label}
             </text>

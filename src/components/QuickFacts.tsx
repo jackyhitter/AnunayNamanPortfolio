@@ -8,10 +8,10 @@ const QuickFacts = () => {
         <div>
           <h3 className="font-mono text-tiny text-muted mb-4">EDUCATION</h3>
           <div className="font-sans text-small">
-            <p className="text-muted">{experience.education.degree}</p>
+            <p style={{ color: 'var(--text-muted)' }}>{experience.education.degree}</p>
             <p className="mt-1 text-white">Minor Specialisation: {experience.education.minor}</p>
-            <p className="text-muted mt-2">{experience.education.university}</p>
-            <p className="text-dim mt-1">{experience.education.period}</p>
+            <p style={{ color: 'var(--text-muted)' }} className="mt-2">{experience.education.university}</p>
+            <p style={{ color: 'var(--text-dim)' }} className="mt-1">{experience.education.period}</p>
           </div>
         </div>
 
@@ -21,9 +21,9 @@ const QuickFacts = () => {
             {experience.roles.map((role, idx) => (
               <div key={idx} className="font-sans text-small">
                 <p>{role.title}</p>
-                <p className="text-muted">{role.company}</p>
-                <p className="text-dim mt-1">{role.period}</p>
-                {role.description && <p className="text-dim mt-1 text-xs">{role.description}</p>}
+                <p style={{ color: 'var(--text-muted)' }}>{role.company}</p>
+                <p style={{ color: 'var(--text-dim)' }} className="mt-1">{role.period}</p>
+                {role.description && <p style={{ color: 'var(--text-dim)' }} className="mt-1 text-xs">{role.description}</p>}
               </div>
             ))}
           </div>
@@ -34,7 +34,7 @@ const QuickFacts = () => {
           <ul className="font-sans text-small flex flex-col gap-2">
             {achievements.map((item: string, idx: number) => (
               <li key={idx} className="flex gap-4 border-b border-[#27272a] pb-2 last:border-0">
-                <span className="text-accent opacity-50">{(idx + 1).toString().padStart(2, '0')}</span>
+                <span className="font-code" style={{ color: 'var(--stat-color)', opacity: 0.8 }}>{(idx + 1).toString().padStart(2, '0')}</span>
                 <span>{item}</span>
               </li>
             ))}

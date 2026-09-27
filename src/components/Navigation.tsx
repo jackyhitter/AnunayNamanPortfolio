@@ -47,8 +47,8 @@ const Navigation = () => {
       </div>
 
       {/* Right: Status */}
-      <div className={`flex items-center gap-2 text-accent z-10 transition-all duration-700 pointer-events-auto mix-blend-difference ${scrolled ? 'scale-90 origin-right' : 'scale-100'}`}>
-        <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+      <div className={`flex items-center gap-2 z-10 transition-all duration-700 pointer-events-auto mix-blend-difference ${scrolled ? 'scale-90 origin-right' : 'scale-100'}`} style={{ color: 'var(--online-color)' }}>
+        <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--online-color)' }}></div>
         [ONLINE]
       </div>
     </nav>

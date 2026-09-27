@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const concepts = [
   { id: 'ds', label: 'DATA SCIENCE', desc: 'Finding the shape of the problem.' },
@@ -10,6 +10,23 @@ const concepts = [
 
 const About = () => {
   const [hoveredConcept, setHoveredConcept] = useState<string | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const cardGlowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const glow = cardGlowRef.current;
+    if (!card || !glow) return;
+    const onMove = (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      glow.style.background = `radial-gradient(350px circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, rgba(96,165,250,0.08), transparent 70%)`;
+      glow.style.opacity = '1';
+    };
+    const onLeave = () => { glow.style.opacity = '0'; };
+    card.addEventListener('mousemove', onMove);
+    card.addEventListener('mouseleave', onLeave);
+    return () => { card.removeEventListener('mousemove', onMove); card.removeEventListener('mouseleave', onLeave); };
+  }, []);
 
   return (
     <section id="about" className="section container border-t">
@@ -19,7 +36,7 @@ const About = () => {
         <div className="lg:col-span-7 flex flex-col justify-center">
           <h2 className="font-mono text-tiny text-muted mb-12">SYSTEMS & PHILOSOPHY</h2>
           
-          <p className="font-serif text-heading italic mb-16 text-dim">
+          <p className="font-serif text-heading italic mb-16" style={{ color: 'var(--text-muted)' }}>
             "I started with curiosity about data.<br/><br/>
             That became <span className="text-white">machine learning</span>.<br/>
             Machine learning pulled me toward <span className="text-white">systems</span>.<br/>
@@ -54,24 +71,25 @@ const About = () => {
           </div>
         </div>
 
-        {/* Right Side: Education & Foundation */}
-        <div className="lg:col-span-5 bg-[#0a0a0a] border border-[#27272a] p-8 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-accent opacity-5 blur-[80px] rounded-full group-hover:opacity-20 transition-opacity duration-700"></div>
+        {/* Right Side: Education & Foundation — proximity gradient card */}
+        <div ref={cardRef} className="lg:col-span-5 bg-[#0a0a0a] border border-[#27272a] p-8 relative overflow-hidden group">
+          <div ref={cardGlowRef} className="proximity-glow" />
+          <div className="absolute top-0 right-0 w-32 h-32 bg-accent opacity-[0.03] blur-[80px] rounded-full group-hover:opacity-[0.12] transition-opacity duration-700"></div>
           
           <h2 className="font-mono text-tiny text-muted mb-8 border-b border-[#27272a] pb-4">FOUNDATION</h2>
           
           <div className="mb-12">
             <h3 className="font-sans text-small text-white mb-2">Punjab Engineering College</h3>
-            <div className="font-mono text-tiny text-dim mb-1">B.Tech • 2024–2028</div>
-            <div className="font-mono text-tiny text-accent">Minor Specialisation: Data Science Engineering</div>
+            <div className="font-code text-tiny mb-1" style={{ color: 'var(--text-dim)' }}>B.Tech • 2024–2028</div>
+            <div className="font-code text-tiny" style={{ color: 'var(--tag-color)' }}>Minor Specialisation: Data Science Engineering</div>
           </div>
 
           <div>
             <h3 className="font-sans text-small text-white mb-4">Data Science Engineering Minor Curriculum</h3>
-            <ul className="font-mono text-tiny text-dim flex flex-col gap-3">
+            <ul className="font-code text-tiny flex flex-col gap-3" style={{ color: 'var(--text-muted)' }}>
               <li className="flex justify-between border-b border-[#27272a] pb-2">
                 <span>Python for Data Science</span>
-                <span className="text-accent">A+</span>
+                <span style={{ color: 'var(--stat-color)', fontWeight: 600 }}>A+</span>
               </li>
               <li className="flex justify-between border-b border-[#27272a] pb-2">
                 <span>Machine Learning</span>
@@ -90,8 +108,8 @@ const About = () => {
           
           <div className="mt-12 pt-8 border-t border-[#27272a]">
              <h3 className="font-sans text-small text-white mb-4">NPTEL Certification</h3>
-             <div className="font-mono text-tiny text-dim mb-2">Introduction to Machine Learning (IIT Madras)</div>
-             <div className="inline-block border border-accent text-accent px-2 py-1 font-mono text-[10px]">
+             <div className="font-code text-tiny mb-2" style={{ color: 'var(--text-dim)' }}>Introduction to Machine Learning (IIT Madras)</div>
+             <div className="inline-block border px-2 py-1 font-code text-[10px]" style={{ borderColor: 'var(--online-color)', color: 'var(--online-color)' }}>
                NATIONAL TOP 2%
              </div>
           </div>

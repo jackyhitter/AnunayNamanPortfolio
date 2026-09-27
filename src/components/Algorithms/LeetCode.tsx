@@ -64,7 +64,7 @@ const LeetCode = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-baseline">
                   <span className="font-mono text-tiny text-muted">TOTAL SOLVED</span>
-                  <span className="font-sans text-[2rem] font-bold text-accent leading-none">{stats.totalSolved}</span>
+                  <span className="font-sans text-[2rem] font-bold leading-none" style={{ color: 'var(--stat-color)' }}>{stats.totalSolved}</span>
                 </div>
                 
                 <div className="grid grid-cols-3 gap-2 mt-4 text-center">
@@ -103,21 +103,21 @@ const LeetCode = () => {
             <h3 className="font-sans text-small text-white mb-6 border-b border-[#27272a] pb-4">LEARNED THROUGH</h3>
             <div className="flex flex-col gap-4">
               <a href="https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" target="_blank" rel="noopener noreferrer" className="flex justify-between items-baseline group">
-                <span className="font-mono text-tiny text-dim group-hover:text-white transition-colors">STRIVER A2Z</span>
-                <span className="font-mono text-[10px] text-accent">474 problems ↗</span>
+                <span className="font-code text-tiny group-hover:text-white transition-colors" style={{ color: 'var(--text-dim)' }}>STRIVER A2Z</span>
+                <span className="font-code text-[10px]" style={{ color: 'var(--tag-color)' }}>474 problems ↗</span>
               </a>
               <a href="https://www.youtube.com/watch?v=Z2oxGj36vZk" target="_blank" rel="noopener noreferrer" className="flex justify-between items-baseline group">
-                <span className="font-mono text-tiny text-dim group-hover:text-white transition-colors">LOVE BABBAR C++</span>
-                <span className="font-mono text-[10px] text-accent">~10h ↗</span>
+                <span className="font-code text-tiny group-hover:text-white transition-colors" style={{ color: 'var(--text-dim)' }}>LOVE BABBAR C++</span>
+                <span className="font-code text-[10px]" style={{ color: 'var(--tag-color)' }}>~10h ↗</span>
               </a>
               <div className="flex justify-between items-baseline">
-                <span className="font-mono text-tiny text-dim">SELF PRACTICE</span>
-                <span className="font-mono text-[10px] text-muted">CONTINUOUS</span>
+                <span className="font-code text-tiny" style={{ color: 'var(--text-dim)' }}>SELF PRACTICE</span>
+                <span className="font-code text-[10px]" style={{ color: 'var(--text-muted)' }}>CONTINUOUS</span>
               </div>
             </div>
           </div>
 
-          <div className="font-serif text-small text-dim italic">
+          <div className="font-serif text-small italic" style={{ color: 'var(--text-muted)' }}>
             "Optimization isn't just about speed — it's about understanding the underlying geometry of the problem."
           </div>
         </div>

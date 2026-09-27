@@ -14,13 +14,22 @@ import SkillMap from './components/Skills/SkillMap';
 import AfterHours from './components/AfterHours/AfterHours';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SectionProgress from './components/SectionProgress';
+
+// Sections that slide on top of the one before them
+const SLIDE_BG = '#0b0b0b';
+const SLIDE_STYLE: React.CSSProperties = {
+  position: 'relative',
+  zIndex: 2,
+  background: SLIDE_BG,
+  boxShadow: '0 -24px 60px rgba(0,0,0,0.7)',
+  borderRadius: '0 0 0 0',
+};
 
 function App() {
   useEffect(() => {
-    // Force dark mode
     document.documentElement.setAttribute('data-theme', 'dark');
 
-    // Smooth scrolling
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -35,55 +44,98 @@ function App() {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Easter Egg: The Matrix
+    console.log("%cWake up, Neo...\n%cThe Matrix has you.\n\n%cLooking for easter eggs? You found the first one.", 
+      "color: #10b981; font-size: 16px; font-weight: bold;", 
+      "color: #10b981; font-size: 14px;", 
+      "color: #52525b; font-size: 10px;"
+    );
+
+    return () => { 
+      lenis.destroy(); 
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
     <>
+      {/* Global Ambient Cursor Glow - Warm Flashlight effect */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-[9999]"
+        style={{
+          background: 'radial-gradient(400px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(255, 210, 150, 0.12), transparent 80%)'
+        }}
+      />
       <div className="grid-overlay"></div>
       <Navigation />
-      
+      <SectionProgress />
+
       <main>
-        {/* 01 — HERO: Interactive identity network + anime particle artwork */}
+        {/* 01 — HERO: base layer */}
         <Hero />
-        
-        {/* 02 — QUICK FACTS */}
-        <QuickFacts />
-        
-        {/* 03 — ABOUT / SYSTEM + EDUCATION + DATA SCIENCE */}
-        <About />
-        
-        {/* 04 — CURRENTLY BUILDING: Live status board */}
-        <CurrentlyBuilding />
-        
-        {/* 05 — EXPLORE WORLD: ITom-inspired spatial navigation */}
-        <ExploreWorld />
-        
-        {/* 06 — SELECTED WORK: Compact project index */}
-        <SelectedWork />
-        
-        {/* 07 — LAB: Rainbow Box + Scribble + Experiments */}
-        <SideQuests />
-        
-        {/* 08 — ALGORITHMIC PRACTICE: Dynamic LeetCode + DSA Map */}
-        <LeetCode />
-        
-        {/* 09 — LEARNING LOG: Striver, Love Babbar, Krish Naik, Hitesh */}
-        <LearningLog />
-        
-        {/* 10 — SKILLS / SYSTEM MAP */}
-        <SkillMap />
-        
-        {/* 11 — AFTER HOURS: Anime, Manga, Games, F1, Football, Art, Rabbit Holes */}
-        <AfterHours />
-        
+
+        {/* 02 — QUICK FACTS: slides on top of hero */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 3 }}>
+          <QuickFacts />
+        </div>
+
+        {/* 03 — ABOUT */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 4 }}>
+          <About />
+        </div>
+
+        {/* 04 — CURRENTLY BUILDING: horizontal scroll, no top shadow to avoid clipping */}
+        <div style={{ position: 'relative', zIndex: 5, background: '#0b0b0b' }}>
+          <CurrentlyBuilding />
+        </div>
+
+        {/* 05 — EXPLORE WORLD: slides on top, high z-index to pop over next section */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 20 }}>
+          <ExploreWorld />
+        </div>
+
+        {/* 06 — SELECTED WORK */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 7 }}>
+          <SelectedWork />
+        </div>
+
+        {/* 07 — SIDE QUESTS */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 8 }}>
+          <SideQuests />
+        </div>
+
+        {/* 08 — ALGORITHMIC PRACTICE */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 9 }}>
+          <LeetCode />
+        </div>
+
+        {/* 09 — LEARNING LOG */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 10 }}>
+          <LearningLog />
+        </div>
+
+        {/* 10 — SKILLS */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 11 }}>
+          <SkillMap />
+        </div>
+
+        {/* 11 — AFTER HOURS */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 12 }}>
+          <AfterHours />
+        </div>
+
         {/* 12 — CONTACT */}
-        <Contact />
+        <div style={{ ...SLIDE_STYLE, zIndex: 13 }}>
+          <Contact />
+        </div>
       </main>
 
       <Footer />

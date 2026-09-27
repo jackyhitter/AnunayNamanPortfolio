@@ -21,9 +21,10 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="font-mono text-[10px] md:text-tiny text-dim flex flex-col gap-2 md:text-right border-l border-[#27272a] md:border-l-0 md:border-r border-[#27272a] pl-4 md:pl-0 md:pr-4 py-1">
+      <div className="font-mono text-[10px] md:text-tiny flex flex-col gap-2 md:text-right border-l border-[#27272a] md:border-l-0 md:border-r border-[#27272a] pl-4 md:pl-0 md:pr-4 py-1 relative" style={{ color: 'var(--text-dim)' }}>
         <p>Built with: React / TypeScript / curiosity / questionable sleep schedules</p>
-        <p className="opacity-50">© 2026 Anunay Naman. All systems nominal.</p>
+        <p style={{ color: 'var(--text-dim)', opacity: 0.7 }}>© 2026 Anunay Naman. All systems nominal.</p>
+        <p className="absolute -bottom-10 right-4 text-[8px] select-text selection:bg-accent selection:text-white cursor-text" style={{ color: '#050505' }}>See you space cowboy...</p>
       </div>
     </footer>
   );

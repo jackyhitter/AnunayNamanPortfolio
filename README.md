@@ -94,6 +94,20 @@ npm run preview
 - **LinkedIn:** https://www.linkedin.com/in/anunaynaman/
 - **LeetCode:** https://leetcode.com/u/anunaynaman/
 
+## Visual Effects & Easter Eggs
+
+### Aesthetic Features
+- **Ambient Flashlight Cursor**: A custom global ambient light that follows the cursor, casting a warm 400px amber glow over the entire portfolio. It dynamically brightens and interacts with elements underneath it without relying on complex, performance-heavy blend modes.
+- **Liquid Morphing Selection (hover-bubbly)**: Major interactive cards and tech pills utilize a unique, organic CSS animation (`.hover-bubbly`). When hovered, their strict rectangular borders morph smoothly via animated `border-radius`, creating a watery, breathing bubble effect combined with a soft emerald glow.
+- **Cinematic Overlays**: The site uses subtle CRT-style grid overlays, noise textures, and dim ambient code-terminal aesthetics to create a premium, immersive developer environment without resorting to "AI slop" standard themes.
+
+### Developer Easter Eggs 🥚
+This portfolio contains a few hidden nods and references for those who look closely:
+1. **The Matrix**: Open your developer console upon loading the site. *"Wake up, Neo..."*
+2. **Hitchhiker's Guide to ML**: Hover over the `MODEL` pipeline node in the ML_PROJECT card (Projects section) to discover why we *really* use `random_state=42`.
+3. **Jujutsu Kaisen**: Hover over the LeetCode terminal grind button to see its true domain expansion.
+4. **Cowboy Bebop**: Try highlighting the empty space at the very bottom right of the Footer. *"See you space cowboy..."*
+
 ## License
 
 This project is personal. Code structure may be referenced but please do not copy the design wholesale.

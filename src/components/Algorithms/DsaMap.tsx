@@ -47,9 +47,9 @@ const DsaMap = () => {
             key={topic.name}
             onMouseEnter={() => setHoveredTopic(topic.name)}
             onMouseLeave={() => setHoveredTopic(null)}
-            className={`cursor-default px-4 py-2 border font-mono text-tiny transition-all duration-300 ${
+            className={`cursor-pointer px-4 py-2 border font-mono text-tiny transition-all duration-300 hover-bubbly ${
               hoveredTopic === topic.name 
-                ? 'border-accent bg-accent/10 text-white scale-105' 
+                ? 'border-accent bg-accent/10 text-white' 
                 : hoveredTopic 
                   ? 'border-[#1a1a1a] text-[#3f3f46] opacity-40'
                   : 'border-[#27272a] text-muted hover:border-[#3f3f46]'

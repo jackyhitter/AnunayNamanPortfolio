@@ -66,11 +66,11 @@ const LeetCode = () => {
         </div>
 
         <div className="md:col-span-3">
-          <div className="border border-[#27272a] bg-[#0c0c0c] p-4 font-mono text-tiny h-48 flex flex-col justify-end relative overflow-hidden group">
+          <div className="border border-[#27272a] bg-[#0c0c0c] p-4 font-mono text-tiny h-48 flex flex-col justify-end relative overflow-hidden group hover-bubbly">
             <button 
               onClick={handleGrind} 
               className="absolute top-4 right-4 text-dim hover:text-accent transition-colors"
-              title="The Grind"
+              title="Domain Expansion: Infinite Void"
             >
               <Terminal size={14} />
             </button>

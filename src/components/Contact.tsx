@@ -19,8 +19,8 @@ const Contact = () => {
   return (
     <section id="contact" className="section container border-t mb-32">
       <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
-        <h2 className="font-mono text-tiny text-muted mb-6">LET'S BUILD SOMETHING</h2>
-        <p className="font-serif text-body text-dim italic mb-12">
+        <h2 className="font-code text-tiny mb-6" style={{ color: 'var(--text-muted)' }}>LET'S BUILD SOMETHING</h2>
+        <p className="font-serif text-body italic mb-12" style={{ color: 'var(--text-muted)' }}>
           For research, ML, backend, creative coding, or interesting systems.
         </p>
 

@@ -179,7 +179,7 @@ const ExploreWorld = () => {
   };
 
   return (
-    <section ref={containerRef} id="explore" className="relative w-full h-screen bg-[#050505] overflow-hidden">
+    <section ref={containerRef} id="explore" className="relative w-full h-screen bg-[#050505]">
       
       {/* Fixed UI overlay */}
       <div className="absolute top-8 left-8 z-50">
@@ -205,7 +205,7 @@ const ExploreWorld = () => {
       </div>
 
       {/* 3D World Container */}
-      <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: '1200px' }}>
+      <div className="absolute inset-0 flex items-center justify-center z-30" style={{ perspective: '1200px' }}>
         <div ref={worldRef} className="explore-world-inner relative" style={{ transformStyle: 'preserve-3d' }}>
           
           {/* Floor Grid */}
@@ -215,7 +215,9 @@ const ExploreWorld = () => {
               backgroundImage: 'linear-gradient(rgba(39,39,42,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(39,39,42,0.4) 1px, transparent 1px)',
               backgroundSize: '80px 80px',
               transformOrigin: 'center center',
-              transform: 'rotateX(60deg) translateZ(-200px)'
+              transform: 'rotateX(60deg) translateZ(-200px)',
+              WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
+              maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
             }}
           />
 
@@ -240,13 +242,13 @@ const ExploreWorld = () => {
 
           {/* ROOM: WORK — Left */}
           <div 
-            className="room-work absolute cursor-pointer group"
+            className="room-work absolute cursor-pointer group hover-bubbly"
             style={{ left: '-340px', top: '50%', transform: 'translateY(-50%)' }}
             onMouseEnter={() => setActiveRoom('work')}
             onMouseLeave={() => setActiveRoom(null)}
             onClick={() => handleRoomClick('#work')}
           >
-            <div className="w-48 md:w-64 border border-[#27272a] bg-[#0a0a0a] p-6 group-hover:border-[#2563eb] transition-all duration-500 relative overflow-hidden">
+            <div className="w-48 md:w-64 border border-[#27272a] bg-[#0a0a0a] p-6 transition-all duration-500 relative overflow-hidden group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:shadow-[#2563eb]/20">
               <div className="absolute inset-0 bg-[#2563eb] opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="font-mono text-[28px] text-[#27272a] group-hover:text-[#2563eb] transition-colors mb-3">⬡</div>
@@ -266,13 +268,13 @@ const ExploreWorld = () => {
 
           {/* ROOM: LAB — Top */}
           <div 
-            className="room-lab absolute cursor-pointer group"
+            className="room-lab absolute cursor-pointer group hover-bubbly"
             style={{ left: '50%', top: '-280px', transform: 'translateX(-50%)' }}
             onMouseEnter={() => setActiveRoom('lab')}
             onMouseLeave={() => setActiveRoom(null)}
             onClick={() => handleRoomClick('#lab')}
           >
-            <div className="w-48 md:w-64 border border-[#27272a] bg-[#0a0a0a] p-6 group-hover:border-[#10b981] transition-all duration-500 relative overflow-hidden">
+            <div className="w-48 md:w-64 border border-[#27272a] bg-[#0a0a0a] p-6 transition-all duration-500 relative overflow-hidden group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:shadow-[#10b981]/20">
               <div className="absolute inset-0 bg-[#10b981] opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="font-mono text-[28px] text-[#27272a] group-hover:text-[#10b981] transition-colors mb-3">◇</div>
@@ -292,13 +294,13 @@ const ExploreWorld = () => {
 
           {/* ROOM: LEARNING — Right */}
           <div 
-            className="room-learning absolute cursor-pointer group"
+            className="room-learning absolute cursor-pointer group hover-bubbly"
             style={{ right: '-340px', top: '50%', transform: 'translateY(-50%)' }}
             onMouseEnter={() => setActiveRoom('learning')}
             onMouseLeave={() => setActiveRoom(null)}
             onClick={() => handleRoomClick('#learning')}
           >
-            <div className="w-48 md:w-64 border border-[#27272a] bg-[#0a0a0a] p-6 group-hover:border-[#f59e0b] transition-all duration-500 relative overflow-hidden">
+            <div className="w-48 md:w-64 border border-[#27272a] bg-[#0a0a0a] p-6 transition-all duration-500 relative overflow-hidden group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:shadow-[#f59e0b]/20">
               <div className="absolute inset-0 bg-[#f59e0b] opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="font-mono text-[28px] text-[#27272a] group-hover:text-[#f59e0b] transition-colors mb-3">△</div>
@@ -318,13 +320,13 @@ const ExploreWorld = () => {
 
           {/* ROOM: AFTER HOURS — Bottom */}
           <div 
-            className="room-afterhours absolute cursor-pointer group"
+            className="room-afterhours absolute cursor-pointer group hover-bubbly"
             style={{ left: '50%', bottom: '-320px', transform: 'translateX(-50%)' }}
             onMouseEnter={() => setActiveRoom('afterhours')}
             onMouseLeave={() => setActiveRoom(null)}
             onClick={() => handleRoomClick('#afterhours')}
           >
-            <div className="w-48 md:w-72 border border-[#27272a] bg-[#0a0a0a] p-6 group-hover:border-[#8b5cf6] transition-all duration-500 relative overflow-hidden">
+            <div className="w-48 md:w-72 border border-[#27272a] bg-[#0a0a0a] p-6 transition-all duration-500 relative overflow-hidden group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:shadow-[#8b5cf6]/20">
               <div className="absolute inset-0 bg-[#8b5cf6] opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="font-mono text-[28px] text-[#27272a] group-hover:text-[#8b5cf6] transition-colors mb-3">○</div>
@@ -346,7 +348,7 @@ const ExploreWorld = () => {
       </div>
 
       {/* Continue prompt */}
-      <div className="explore-prompt absolute bottom-8 left-1/2 -translate-x-1/2 z-40 font-mono text-[10px] text-dim flex flex-col items-center gap-2 opacity-0">
+      <div className="explore-prompt absolute bottom-8 left-1/2 -translate-x-1/2 z-10 font-mono text-[10px] text-dim flex flex-col items-center gap-2 opacity-0 pointer-events-none">
         <span>CLICK A ROOM TO ENTER</span>
         <span>OR CONTINUE SCROLLING</span>
         <div className="w-[1px] h-6 bg-gradient-to-b from-dim to-transparent mt-1" />
