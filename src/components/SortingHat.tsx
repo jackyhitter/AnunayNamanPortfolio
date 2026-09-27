@@ -1,30 +1,43 @@
 import { useState } from 'react';
 import { Sparkles } from 'lucide-react';
+import { gsap } from 'gsap';
 
 const HOUSES = [
   {
     name: 'Gryffindor',
     color: '#dc2626', // Crimson red
     quote: "You might belong in Gryffindor, where dwell the brave at heart. Their daring, nerve, and chivalry set Gryffindors apart.",
-    tagColor: '#fca5a5'
+    tagColor: '#fca5a5',
+    onlineColor: '#ef4444',
+    statColor: '#f59e0b',
+    bgDark: '#1a0505',
   },
   {
     name: 'Slytherin',
     color: '#10b981', // Emerald green
     quote: "Or perhaps in Slytherin, you'll make your real friends. Those cunning folk use any means to achieve their ends.",
-    tagColor: '#6ee7b7'
+    tagColor: '#6ee7b7',
+    onlineColor: '#059669',
+    statColor: '#10b981',
+    bgDark: '#021008',
   },
   {
     name: 'Ravenclaw',
     color: '#3b82f6', // Blue
     quote: "Or yet in wise old Ravenclaw, if you've a ready mind. Where those of wit and learning, will always find their kind.",
-    tagColor: '#93c5fd'
+    tagColor: '#93c5fd',
+    onlineColor: '#60a5fa',
+    statColor: '#93c5fd',
+    bgDark: '#050a1f',
   },
   {
     name: 'Hufflepuff',
     color: '#eab308', // Yellow/Gold
     quote: "You might belong in Hufflepuff, where they are just and loyal. Those patient Hufflepuffs are true and unafraid of toil.",
-    tagColor: '#fde047'
+    tagColor: '#fde047',
+    onlineColor: '#eab308',
+    statColor: '#fef08a',
+    bgDark: '#171401',
   }
 ];
 
@@ -42,15 +55,44 @@ export const SortingHat = () => {
       setHouse(selected);
       setSortState('sorted');
       
-      // Magically update the site's CSS variables to match the house!
-      document.documentElement.style.setProperty('--accent-color', selected.color);
-      document.documentElement.style.setProperty('--tag-color', selected.tagColor);
+      const elementsToDust = document.querySelectorAll('main > div:not(:last-child), main > section#hero, nav, footer, .grid-overlay');
       
-      // Update the ambient cursor glow as well
-      const overlay = document.querySelector('.ambient-cursor-overlay') as HTMLElement;
-      if (overlay) {
-        overlay.style.setProperty('--ambient-color', selected.color);
-      }
+      const tl = gsap.timeline();
+      
+      tl.to(elementsToDust, {
+        opacity: 0,
+        filter: 'blur(10px) brightness(200%)',
+        y: -30,
+        scale: 0.98,
+        stagger: 0.05,
+        duration: 0.8,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          // Magically update the site's CSS variables to match the house!
+          document.documentElement.style.setProperty('--accent-color', selected.color);
+          document.documentElement.style.setProperty('--tag-color', selected.tagColor);
+          document.documentElement.style.setProperty('--online-color', selected.onlineColor);
+          document.documentElement.style.setProperty('--stat-color', selected.statColor);
+          document.documentElement.style.setProperty('--bg-color', selected.bgDark);
+          
+          // Update the ambient cursor glow as well
+          const overlay = document.querySelector('.ambient-cursor-overlay') as HTMLElement;
+          if (overlay) {
+            overlay.style.setProperty('--ambient-color', selected.color);
+          }
+        }
+      })
+      .to(elementsToDust, {
+        opacity: 1,
+        filter: 'blur(0px) brightness(100%)',
+        y: 0,
+        scale: 1,
+        stagger: 0.05,
+        duration: 1.2,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+      
     }, 4500);
   };
 
