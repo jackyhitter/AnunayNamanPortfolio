@@ -79,13 +79,13 @@ const WorkRow = ({ project, idx }: { project: (typeof projects)[0]; idx: number 
       </div>
 
       <div className="md:col-span-2 flex flex-col items-start md:items-end gap-2 relative z-10">
-        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
+        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`GitHub Repository for ${project.title}`}
            className="font-code text-tiny hover:text-white transition-colors flex items-center gap-2"
            style={{ color: 'var(--text-dim)' }}>
           [OPEN REPO ↗]
         </a>
         {project.liveUrl && (
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`Live Demo for ${project.title}`}
              className="font-code text-tiny hover:text-white transition-colors flex items-center gap-2"
              style={{ color: 'var(--text-dim)' }}>
             [LIVE DEMO ↗]
@@ -103,7 +103,7 @@ const SelectedWork = () => {
     <section id="work" className="section container border-t">
       <div className="flex justify-between items-end mb-16">
         <h2 className="font-code text-tiny" style={{ color: 'var(--text-muted)' }}>SELECTED WORK</h2>
-        <a href="https://github.com/jackyhitter" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/jackyhitter" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile — Anunay Naman"
            className="font-code text-tiny hover:text-white transition-colors"
            style={{ color: 'var(--text-dim)' }}>
           [VIEW ALL ON GITHUB ↗]

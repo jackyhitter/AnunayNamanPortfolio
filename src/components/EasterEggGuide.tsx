@@ -65,30 +65,27 @@ export const EasterEggGuide = () => {
 
   return (
     <div 
-      className={`fixed bottom-12 left-0 z-[100000] flex items-end transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isVisible ? 'translate-x-8 opacity-100' : '-translate-x-[150%] opacity-0 pointer-events-none'}`}
+      className={`fixed bottom-4 left-0 z-[100000] flex items-end transform-gpu will-change-[transform,opacity] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isVisible ? 'translate-x-4 opacity-100' : '-translate-x-[150%] opacity-0 pointer-events-none'}`}
     >
-      {/* The Golden Snitch Avatar */}
+      {/* The Avatar */}
       <div 
-        className="w-12 h-12 bg-[#0a0a0a] border-2 border-[#d4af37]/60 shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center justify-center relative flex-shrink-0 mb-2 ml-2 mr-3"
+        className="w-12 h-12 bg-[#050505] border-2 border-[#065f46]/60 shadow-[0_0_20px_rgba(6,95,70,0.4)] flex items-center justify-center relative flex-shrink-0 mb-2 ml-2 mr-3"
         style={{ animation: 'morph-bubble 4s ease-in-out infinite' }}
       >
-        <div className="absolute inset-0 bg-[#d4af37]/10 rounded-full" style={{ animation: 'morph-bubble 3s ease-in-out infinite reverse' }}></div>
-        <div className="w-2 h-2 bg-[#fbbf24] rounded-full animate-pulse shadow-[0_0_12px_#fbbf24]"></div>
+        <div className="absolute inset-0 bg-[#065f46]/10 rounded-full" style={{ animation: 'morph-bubble 3s ease-in-out infinite reverse' }}></div>
+        <div className="w-2 h-2 bg-[#10b981] rounded-full animate-pulse shadow-[0_0_12px_#10b981]"></div>
       </div>
 
-      {/* The Parchment Message Bubble */}
+      {/* The Message Bubble */}
       <div 
-        className="bg-[#0c0a05]/95 backdrop-blur-md border border-[#d4af37]/50 p-4 max-w-[300px] rounded-3xl rounded-bl-sm shadow-[4px_4px_25px_rgba(212,175,55,0.15)] relative mb-4"
+        className="bg-[#050505]/60 backdrop-blur-md border border-[#065f46]/40 p-3 max-w-[260px] rounded-2xl shadow-[4px_4px_20px_rgba(6,95,70,0.15)] relative mb-3"
         style={{ transformOrigin: 'bottom left' }}
       >
-        {/* Tail of the bubble */}
-        <div className="absolute -left-[7px] bottom-[-1px] w-4 h-4 bg-[#0c0a05] border-b border-l border-[#d4af37]/50 rounded-bl-sm" style={{ clipPath: 'polygon(0 100%, 100% 100%, 100% 0)' }}></div>
-        
-        <div className="font-serif text-small font-bold text-[#d4af37] mb-1 flex items-center gap-2 relative z-10">
-          <Sparkles size={14} className="text-[#d4af37] animate-pulse" />
-          The Seeker
+        <div className="font-serif text-small font-bold text-[#10b981] mb-1 flex items-center gap-2 relative z-10">
+          <Sparkles size={14} className="text-[#10b981] animate-pulse" />
+          Tom Riddle
         </div>
-        <div className="font-serif text-[12px] text-[#e5e5e5] leading-relaxed relative z-10 italic opacity-90">
+        <div className="font-serif text-[12px] text-white leading-relaxed relative z-10 italic drop-shadow-md">
           "{message}"
         </div>
       </div>

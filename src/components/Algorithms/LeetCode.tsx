@@ -44,7 +44,7 @@ const LeetCode = () => {
     <section id="algorithms" className="section container border-t">
       <div className="flex justify-between items-end mb-16 flex-wrap gap-4">
         <h2 className="font-mono text-tiny text-muted">ALGORITHMIC PRACTICE</h2>
-        <a href={profile.leetcode} target="_blank" rel="noopener noreferrer" className="font-mono text-tiny hover:text-accent transition-colors flex items-center gap-2">
+        <a href={profile.leetcode} target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile — Anunay Naman" className="font-mono text-tiny hover:text-accent transition-colors flex items-center gap-2">
           [OPEN LEETCODE ↗] <ExternalLink size={12} />
         </a>
       </div>

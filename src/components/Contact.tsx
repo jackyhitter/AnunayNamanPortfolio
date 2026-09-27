@@ -38,13 +38,13 @@ const Contact = () => {
           >
             [EMAIL]
           </a>
-          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub — Anunay Naman" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
             [GITHUB]
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — Anunay Naman" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
             [LINKEDIN]
           </a>
-          <a href={profile.leetcode} target="_blank" rel="noopener noreferrer" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
+          <a href={profile.leetcode} target="_blank" rel="noopener noreferrer" aria-label="LeetCode — Anunay Naman" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
             [LEETCODE]
           </a>
         </div>
