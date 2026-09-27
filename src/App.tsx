@@ -18,6 +18,8 @@ import SectionProgress from './components/SectionProgress';
 import { Preloader } from './components/Preloader';
 import { EasterEggGuide } from './components/EasterEggGuide';
 
+import { SortingHat } from './components/SortingHat';
+
 // Sections that slide on top of the one before them
 const SLIDE_BG = '#0b0b0b';
 const SLIDE_STYLE: React.CSSProperties = {
@@ -142,6 +144,11 @@ function App() {
         {/* 12 — CONTACT */}
         <div style={{ ...SLIDE_STYLE, zIndex: 13 }}>
           <Contact />
+        </div>
+
+        {/* 13 — SORTING HAT */}
+        <div style={{ ...SLIDE_STYLE, zIndex: 14 }}>
+          <SortingHat />
         </div>
       </main>
 

@@ -118,6 +118,9 @@ The portfolio features a global **Seeker Bot** (a bubbly orb that pops in from t
 10. **Marauder's Map**: Hovering the empty space beneath the NPTEL certification in About. *"I solemnly swear that I am up to no good."*
 11. **Chamber of Secrets**: Illuminating a tiny, invisible circle at the bottom right of the Explore Rooms grid.
 
+### Magical Reward 🎩
+At the very bottom of the portfolio, visitors can participate in **The Sorting Ceremony**. The Sorting Hat will analyze the user and sort them into a Hogwarts house (Gryffindor, Slytherin, Ravenclaw, or Hufflepuff). The site's magic is then attuned to that house, dynamically updating the global accent colors, tag colors, and even the ambient cursor glow!
+
 ## License
 
 This project is personal. Code structure may be referenced but please do not copy the design wholesale.
