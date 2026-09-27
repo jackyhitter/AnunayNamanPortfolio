@@ -97,16 +97,26 @@ npm run preview
 ## Visual Effects & Easter Eggs
 
 ### Aesthetic Features
+- **Dynamic Preloader**: A liquid morphing "AN" bubble that uses conic-gradients and smooth GSAP animations to handle initial load.
 - **Ambient Flashlight Cursor**: A custom global ambient light that follows the cursor, casting a warm 400px amber glow over the entire portfolio. It dynamically brightens and interacts with elements underneath it without relying on complex, performance-heavy blend modes.
 - **Liquid Morphing Selection (hover-bubbly)**: Major interactive cards and tech pills utilize a unique, organic CSS animation (`.hover-bubbly`). When hovered, their strict rectangular borders morph smoothly via animated `border-radius`, creating a watery, breathing bubble effect combined with a soft emerald glow.
 - **Cinematic Overlays**: The site uses subtle CRT-style grid overlays, noise textures, and dim ambient code-terminal aesthetics to create a premium, immersive developer environment without resorting to "AI slop" standard themes.
 
-### Developer Easter Eggs 🥚
-This portfolio contains a few hidden nods and references for those who look closely:
+### Developer Easter Eggs 🥚 & The Seeker Bot 🪄
+The portfolio features a global **Seeker Bot** (a bubbly orb that pops in from the left) to track and reward your discovery of hidden Harry Potter, Anime, and Developer culture references scattered throughout the UI. The empty spaces tempt you to illuminate them with your cursor (wand).
+
+**Hidden Secrets:**
 1. **The Matrix**: Open your developer console upon loading the site. *"Wake up, Neo..."*
 2. **Hitchhiker's Guide to ML**: Hover over the `MODEL` pipeline node in the ML_PROJECT card (Projects section) to discover why we *really* use `random_state=42`.
 3. **Jujutsu Kaisen**: Hover over the LeetCode terminal grind button to see its true domain expansion.
 4. **Cowboy Bebop**: Try highlighting the empty space at the very bottom right of the Footer. *"See you space cowboy..."*
+5. **Polyjuice Potion**: Follow the pulsing finger pointer `☜` by the particle change button in the Hero section.
+6. **Fate/stay night**: Hover over the `42` in the Quick Facts list. *"I am the bone of my sword..."*
+7. **C/C++ Trauma**: Hover over the `[EMAIL]` button in Contact. *"I don't bite. Unless it's a segmentation fault."*
+8. **React Abduction**: Illuminating the empty space in the Side Quests section.
+9. **Void Traversal**: Illuminating the vast darkness in the DSA Knowledge Graph section.
+10. **Marauder's Map**: Hovering the empty space beneath the NPTEL certification in About. *"I solemnly swear that I am up to no good."*
+11. **Chamber of Secrets**: Illuminating a tiny, invisible circle at the bottom right of the Explore Rooms grid.
 
 ## License
 
