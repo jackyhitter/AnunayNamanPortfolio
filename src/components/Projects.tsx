@@ -56,7 +56,15 @@ const Projects = () => {
                      <div className="flex gap-4 items-center justify-center">
                         <span className="p-2 border border-[#27272a]">DATA</span>
                         <span>→</span>
-                        <span className="p-2 border border-accent text-accent group/model relative cursor-help">
+                        <span 
+                          className="p-2 border border-accent text-accent group/model relative cursor-help"
+                          onMouseEnter={() => {
+                            if (!window.sessionStorage.getItem('egg_projects')) {
+                              window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: "Hitchhiker's Guide Egg" } }));
+                              window.sessionStorage.setItem('egg_projects', 'true');
+                            }
+                          }}
+                        >
                           MODEL
                           <span className="absolute -top-12 left-1/2 -translate-x-1/2 bg-black border border-[#27272a] p-2 text-[8px] whitespace-nowrap opacity-0 group-hover/model:opacity-100 transition-opacity pointer-events-none text-dim z-50">
                             random_state=42: The answer to life, universe & everything.

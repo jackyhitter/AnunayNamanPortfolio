@@ -38,6 +38,18 @@ const QuickFacts = () => {
                 <span>{item}</span>
               </li>
             ))}
+            <li 
+              className="flex gap-4 pb-2 border-b border-transparent group/secret cursor-crosshair"
+              onMouseEnter={() => {
+                if (!window.sessionStorage.getItem('egg_fate')) {
+                  window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: "Unlimited Blade Works Egg" } }));
+                  window.sessionStorage.setItem('egg_fate', 'true');
+                }
+              }}
+            >
+              <span className="font-code text-dim opacity-0 group-hover/secret:opacity-40 transition-opacity duration-1000">42</span>
+              <span className="text-dim opacity-0 group-hover/secret:opacity-40 transition-opacity duration-1000 pointer-events-none text-[10px] italic">I am the bone of my sword...</span>
+            </li>
           </ul>
         </div>
       </div>

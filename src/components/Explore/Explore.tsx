@@ -345,6 +345,21 @@ const ExploreWorld = () => {
           </div>
 
         </div>
+        
+        {/* Chamber of Secrets Egg */}
+        <div 
+          className="absolute -right-8 -bottom-8 w-8 h-8 border border-transparent hover:border-[#27272a] rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-all duration-1000 cursor-help group/chamber z-20"
+          onMouseEnter={() => {
+            if (!window.sessionStorage.getItem('egg_chamber')) {
+              window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: 'Chamber of Secrets Egg' } }));
+              window.sessionStorage.setItem('egg_chamber', 'true');
+            }
+          }}
+        >
+          <span className="font-serif text-[10px] text-accent select-none pointer-events-none opacity-0 group-hover/chamber:opacity-100 transition-opacity">
+            ~ S ~
+          </span>
+        </div>
       </div>
 
       {/* Continue prompt */}

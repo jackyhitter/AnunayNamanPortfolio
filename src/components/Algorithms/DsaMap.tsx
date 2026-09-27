@@ -41,7 +41,25 @@ const DsaMap = () => {
       </div>
       
       {/* Topic Grid */}
-      <div className="flex-1 flex flex-wrap content-start gap-2">
+      <div className="flex-1 flex flex-wrap content-start gap-2 relative group/empty min-h-[200px]">
+        {/* Hidden text in the empty space */}
+        <div 
+          className="absolute inset-0 flex items-center justify-center cursor-help"
+          onMouseEnter={() => {
+            if (!window.sessionStorage.getItem('egg_dsamap')) {
+              window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: 'Void Traversal Egg' } }));
+              window.sessionStorage.setItem('egg_dsamap', 'true');
+            }
+          }}
+        >
+          <span className="font-code text-[10px] opacity-20 group-hover/empty:opacity-0 transition-opacity absolute pointer-events-none" style={{ color: 'var(--text-dim)' }}>
+            [ illuminate the dark ]
+          </span>
+          <span className="font-code text-[10px] text-accent opacity-0 group-hover/empty:opacity-100 transition-opacity duration-1000 select-none">
+            // traversing the void
+          </span>
+        </div>
+        
         {topics.map(topic => (
           <div 
             key={topic.name}

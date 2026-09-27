@@ -21,7 +21,7 @@ export const learningTracks: LearningTrack[] = [
     provider: "Love Babbar / CodeHelp",
     type: 'free',
     platform: 'YouTube',
-    duration: "~10h",
+    duration: "3 months",
     url: "https://www.youtube.com/watch?v=Z2oxGj36vZk",
     description: "C++ foundation — the language that powers all the DSA and competitive programming that followed.",
     focus: ['C++ Fundamentals', 'Control Flow', 'Functions', 'Arrays', 'Strings', 'Pointers', 'Dynamic Memory', 'References', 'Number Systems', 'Bitwise Operators', 'Patterns', 'Type Casting', 'Problem Solving'],

@@ -179,12 +179,26 @@ const ParticleCharacter = () => {
       <div className="absolute bottom-12 right-12 z-10 font-mono text-tiny text-dim flex items-center gap-4">
         <span>CURRENT FORM</span>
         <span className="text-white border-b border-[#27272a] pb-1">{particleForms[currentFormIndex].label}</span>
-        <button 
-          onClick={() => setCurrentFormIndex((prev) => (prev + 1) % particleForms.length)}
-          className="ml-4 hover:text-accent transition-colors"
-        >
-          [CHANGE]
-        </button>
+        
+        <div className="relative group/btn ml-2 flex items-center">
+          <button 
+            onClick={() => setCurrentFormIndex((prev) => (prev + 1) % particleForms.length)}
+            className="hover:text-accent transition-colors relative z-10 border border-[#27272a] px-3 py-1 bg-[#0c0c0c] hover:border-accent"
+            onMouseEnter={() => {
+              if (!window.sessionStorage.getItem('egg_polyjuice')) {
+                window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: 'Polyjuice Potion Egg' } }));
+                window.sessionStorage.setItem('egg_polyjuice', 'true');
+              }
+            }}
+          >
+            CHANGE
+          </button>
+
+          {/* Finger pointer pointing at the button from the right */}
+          <span className="absolute -right-8 text-accent animate-pulse group-hover/btn:opacity-0 transition-opacity text-2xl select-none pointer-events-none">
+            ☜
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,12 @@ const LeetCode = () => {
 
   const handleGrind = () => {
     if (grindState !== 'idle') return;
+    
+    if (!window.sessionStorage.getItem('egg_leetcode')) {
+      window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: "Domain Expansion Egg" } }));
+      window.sessionStorage.setItem('egg_leetcode', 'true');
+    }
+    
     setGrindState('solving');
     setTimeout(() => setGrindState('compiling'), 1500);
     setTimeout(() => setGrindState('wrong'), 3000);

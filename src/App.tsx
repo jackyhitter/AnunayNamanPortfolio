@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero/Hero';
@@ -15,6 +15,8 @@ import AfterHours from './components/AfterHours/AfterHours';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SectionProgress from './components/SectionProgress';
+import { Preloader } from './components/Preloader';
+import { EasterEggGuide } from './components/EasterEggGuide';
 
 // Sections that slide on top of the one before them
 const SLIDE_BG = '#0b0b0b';
@@ -27,6 +29,8 @@ const SLIDE_STYLE: React.CSSProperties = {
 };
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
 
@@ -67,6 +71,9 @@ function App() {
 
   return (
     <>
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      <EasterEggGuide />
+      
       {/* Global Ambient Cursor Glow - Warm Flashlight effect */}
       <div 
         className="pointer-events-none fixed inset-0 z-[9999]"

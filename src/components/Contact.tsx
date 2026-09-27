@@ -25,7 +25,17 @@ const Contact = () => {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 font-mono text-tiny mb-8">
-          <a href={`mailto:${profile.email}`} className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">
+          <a 
+            href={`mailto:${profile.email}`} 
+            className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors" 
+            title="I don't bite. Unless it's a segmentation fault."
+            onMouseEnter={() => {
+              if (!window.sessionStorage.getItem('egg_contact')) {
+                window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: "Segmentation Fault Egg" } }));
+                window.sessionStorage.setItem('egg_contact', 'true');
+              }
+            }}
+          >
             [EMAIL]
           </a>
           <a href={profile.github} target="_blank" rel="noopener noreferrer" className="border border-[#27272a] bg-[#0c0c0c] px-6 py-3 hover:border-accent hover:text-white transition-colors">

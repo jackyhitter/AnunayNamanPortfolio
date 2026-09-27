@@ -115,6 +115,20 @@ const About = () => {
           </div>
         </div>
 
+        <div 
+          className="col-span-1 md:col-span-4 mt-8 flex justify-end cursor-help relative group/marauder h-8"
+          onMouseEnter={() => {
+            if (!window.sessionStorage.getItem('egg_marauder')) {
+              window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: "Marauder's Map Egg" } }));
+              window.sessionStorage.setItem('egg_marauder', 'true');
+            }
+          }}
+        >
+          <span className="font-serif text-[10px] italic opacity-0 group-hover/marauder:opacity-20 transition-opacity duration-1000 select-none pointer-events-none">
+            "I solemnly swear that I am up to no good."
+          </span>
+        </div>
+
       </div>
     </section>
   );

@@ -191,35 +191,35 @@ const ScribbleBoard = () => {
       // Generate interpretation based on real drawing properties
       let interpretation = '';
       let detectedPattern = '';
-      const conf = Math.min(95, Math.max(40, Math.round(coverage * 8 + strokeCount * 3)));
+      const conf = Math.min(99, Math.max(12, Math.round(coverage * 8 + strokeCount * 3)));
 
       if (strokeCount === 0) {
-        interpretation = "You clicked analyze on a blank canvas.\nBold move.";
-        detectedPattern = 'void';
+        interpretation = "You clicked analyze on a blank canvas.\nAre you testing my error handling or is this a minimalist masterpiece? \nQuote: 'I see a polar bear blinking in a blizzard.'";
+        detectedPattern = 'existential void';
       } else if (strokeCount === 1 && coverage < 1) {
-        interpretation = "A single, decisive stroke.\nMinimalism or indecision — hard to tell.";
-        detectedPattern = 'single stroke';
+        interpretation = "A single, decisive mark.\n'One stroke is all it takes' - Dua Lipa, probably.\nAre you trying to escape the matrix with a single vector?";
+        detectedPattern = 'lonely vector';
       } else if (coverage > 15) {
-        interpretation = "Heavy coverage detected.\nEither you're very expressive or very frustrated with the canvas.";
-        detectedPattern = 'dense composition';
+        interpretation = "Heavy ink detected.\nEither you're deeply expressive, or you just reinvented the 'Dark Theme' manually. \nPun: I gotta say, this drawing looks pretty 'sketchy'.";
+        detectedPattern = 'chaotic void (O(n^2) complexity)';
       } else if (strokeCount > 15) {
-        interpretation = `${strokeCount} strokes detected.\nThis has the energy of someone who kept adding "just one more line."`;
-        detectedPattern = 'complex sketch';
+        interpretation = `${strokeCount} strokes detected.\nAh, the classic 'spaghetti code' approach but translated to MS Paint. \nQuote: 'Art is never finished, only abandoned.' (Please abandon this).`;
+        detectedPattern = 'spaghetti art';
       } else if (Number(aspectRatio) > 2) {
-        interpretation = "Wide horizontal composition.\nLandscape? Timeline? System architecture diagram at 2 AM?";
-        detectedPattern = 'horizontal layout';
+        interpretation = "Wide horizontal architecture.\nLooks like a timeline of my unresolved bugs.\nPun: I'm really 'drawn' to your horizontal scalability.";
+        detectedPattern = 'horizontal scalability';
       } else if (Number(aspectRatio) < 0.5) {
-        interpretation = "Tall vertical composition.\nA tower? A tree? A stack trace?";
-        detectedPattern = 'vertical layout';
-      } else if (strokeCount <= 3 && coverage < 3) {
-        interpretation = "Simple and restrained.\nA few deliberate marks — either a face, a symbol, or the letter 'hi'.";
-        detectedPattern = 'simple glyph';
+        interpretation = "Tall vertical stack.\nIs this a binary tree or your unresolved JavaScript Promises stacking up? \nPun: You really set a high 'bar' here.";
+        detectedPattern = 'call stack overflow';
+      } else if (strokeCount <= 4 && coverage < 3) {
+        interpretation = "A few deliberate marks (maybe 'AN' or 'hi'?).\nModel says: I'm 40% sure this is a word, and 60% sure it's a cry for help. \nPun: You made a great 'point' with this one.";
+        detectedPattern = 'cryptic hieroglyphs';
       } else if (Number(density) > 30) {
-        interpretation = "Densely packed strokes in a focused area.\nConcentrated energy. Possibly a face. Possibly chaos.";
-        detectedPattern = 'concentrated form';
+        interpretation = "Densely packed strokes.\nThis has the 'I tried to fix a Git merge conflict by mashing the keyboard' energy. \nQuote: 'Chaos isn't a pit, it's a canvas.'";
+        detectedPattern = 'merge conflict';
       } else {
-        interpretation = `${strokeCount} strokes across ${coverage.toFixed(1)}% of the canvas.\nScattered but intentional. Like notes on a whiteboard.`;
-        detectedPattern = 'scattered composition';
+        interpretation = `Scattered strokes across ${coverage.toFixed(1)}% of the canvas.\nLooks like an unsupervised neural network trying to understand itself. \nPun: You really 'drew' out the suspense on this one.`;
+        detectedPattern = 'unsupervised learning';
       }
 
       setAiResponse({

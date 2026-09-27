@@ -91,6 +91,22 @@ const SideQuests = () => {
                   </div>
                 </a>
               ))}
+              <div 
+                className="hidden sm:flex p-4 group flex-col justify-center items-center text-center cursor-help relative"
+                onMouseEnter={() => {
+                  if (!window.sessionStorage.getItem('egg_sidequests')) {
+                    window.dispatchEvent(new CustomEvent('easter-egg-found', { detail: { name: 'React Abduction Egg' } }));
+                    window.sessionStorage.setItem('egg_sidequests', 'true');
+                  }
+                }}
+              >
+                <span className="font-code text-[10px] opacity-20 group-hover:opacity-0 transition-opacity absolute pointer-events-none" style={{ color: 'var(--text-dim)' }}>
+                  [ seek and you shall find ]
+                </span>
+                <span className="font-code text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none text-accent">
+                  /* 404: 6th project abducted by React */
+                </span>
+              </div>
             </div>
           </div>
         </div>
