@@ -4,11 +4,6 @@ export const skills = {
     items: ["Computer Vision", "Classical ML", "Feature Engineering", "Model Evaluation", "PyTorch", "Scikit-learn"],
     status: "BUILDING"
   },
-  softwareSecurity: {
-    title: "AI & SOFTWARE SECURITY",
-    items: ["CodeQL", "Static Analysis (SAST)", "Taint Analysis", "Automated Program Repair", "LLMSecEval", "Radon"],
-    status: "RESEARCHING"
-  },
   backend: {
     title: "BACKEND",
     items: ["Node.js", "Express", "FastAPI", "REST APIs", "MongoDB", "PostgreSQL", "PostGIS"],
@@ -27,9 +22,7 @@ export const skills = {
 };
 
 export const techStackRelationships = [
-  { name: "PYTHON", links: ["AI Code Security", "La Peace", "ML_project"] },
-  { name: "CODEQL", links: ["AI Code Security"] },
-  { name: "STATIC ANALYSIS", links: ["AI Code Security"] },
+  { name: "PYTHON", links: ["La Peace", "ML_project"] },
   { name: "C++", links: ["DSA", "LeetCode"] },
   { name: "SCIKIT-LEARN", links: ["ML_project"] },
   { name: "PYTORCH", links: ["La Peace"] },

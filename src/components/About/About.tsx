@@ -4,7 +4,6 @@ const concepts = [
   { id: 'ds', label: 'DATA SCIENCE', desc: 'Finding the shape of the problem.' },
   { id: 'ml', label: 'MACHINE LEARNING', desc: 'Teaching systems to recognize the shape.' },
   { id: 'cv', label: 'COMPUTER VISION', desc: 'Giving systems the ability to see it.' },
-  { id: 'sec', label: 'SOFTWARE SECURITY', desc: 'Auditing AI-generated code against vulnerabilities & regressions.' },
   { id: 'be', label: 'BACKEND', desc: 'Building the infrastructure to support it.' },
   { id: 'sys', label: 'SYSTEMS', desc: 'Making sure the entire thing actually works.' }
 ];
@@ -113,20 +112,6 @@ const About = () => {
              <div className="inline-block border px-2 py-1 font-code text-[10px]" style={{ borderColor: 'var(--online-color)', color: 'var(--online-color)' }}>
                NATIONAL TOP 2%
              </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-[#27272a]">
-             <h3 className="font-sans text-small text-white mb-2">Independent Research</h3>
-             <div className="font-code text-tiny mb-2" style={{ color: 'var(--text-dim)' }}>The Whack-a-Mole Effect in AI Code Repair</div>
-             <a 
-               href="https://zenodo.org/records/23297055?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQ4ZDZkOTgxLWY4NGQtNGI4NC1iZTQwLTc0ZmU3N2M2MWFhYyIsImRhdGEiOnt9LCJyYW5kb20iOiJiYjg0MGZjYjRhNDA1MWQ5NGExZTllZThhY2EzNzRhZiJ9.o1bx-7O4pgSJqBFay8n07MZNBXbZaGGTbOmvxIBZKufDrhDwRMFAMLyMkrfoEomdMTR8aO6dO2xe6yBhYqgUCw"
-               target="_blank"
-               rel="noopener noreferrer"
-               className="inline-block border px-2.5 py-1 font-code text-[10px] hover:border-white transition-colors"
-               style={{ borderColor: 'var(--tag-color)', color: 'var(--tag-color)', backgroundColor: 'rgba(94, 234, 212, 0.04)' }}
-             >
-               ZENODO PREPRINT (DOI: 10.5281/zenodo.23297055) ↗
-             </a>
           </div>
         </div>
 
