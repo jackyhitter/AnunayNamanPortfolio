@@ -45,6 +45,13 @@ const clusters: SkillCluster[] = [
     connections: ['ml', 'sys']
   },
   {
+    id: 'sec',
+    label: 'SOFTWARE SECURITY',
+    color: '#ec4899',
+    skills: ['CodeQL', 'Static Analysis (SAST)', 'Taint Tracking', 'LLMSecEval', 'Program Repair', 'Radon CC', 'Vulnerability Auditing'],
+    connections: ['ml', 'sys']
+  },
+  {
     id: 'fe',
     label: 'FRONTEND',
     color: '#06b6d4',
@@ -55,7 +62,7 @@ const clusters: SkillCluster[] = [
 
 // Language tree
 const languageTree = [
-  { lang: 'Python', branches: ['ML', 'Data Science', 'Backend', 'Computer Vision'] },
+  { lang: 'Python', branches: ['ML', 'Data Science', 'Backend', 'Computer Vision', 'Software Security (CodeQL)'] },
   { lang: 'C++', branches: ['Algorithms', 'DSA', 'Competitive Programming'] },
   { lang: 'JavaScript/TS', branches: ['Frontend', 'Backend (Node)', 'Interfaces'] },
 ];

@@ -49,6 +49,17 @@ const currentWork = [
     gradientFrom: 'rgba(192, 192, 192, 0.07)',
     borderGlow: 'rgba(192, 192, 192, 0.08)',
   },
+  {
+    id: '05',
+    title: 'AI SECURITY RESEARCH',
+    desc: 'Static-analysis findings & automated code repair.',
+    detail: 'Auditing scanner-guided repairs on CodeQL alert resolution, vulnerability persistence, and Radon cyclomatic complexity.',
+    tech: ['CodeQL', 'Python', 'LLMSecEval', 'Qwen2.5-Coder', 'Radon', 'SAST'],
+    status: 'RESEARCHING',
+    statusColor: 'var(--tag-color)',
+    gradientFrom: 'rgba(94, 234, 212, 0.14)',
+    borderGlow: 'rgba(94, 234, 212, 0.15)',
+  },
 ];
 
 // 3D Tilt + Proximity Gradient Card
@@ -181,7 +192,7 @@ const ProximityCard = ({ item }: { item: typeof currentWork[0] }) => {
         className="absolute bottom-8 right-8 font-code text-[10px]"
         style={{ color: 'var(--text-dim)', opacity: 0.5 }}
       >
-        {item.id} / 04
+        {item.id} / 0{currentWork.length}
       </div>
     </div>
   );

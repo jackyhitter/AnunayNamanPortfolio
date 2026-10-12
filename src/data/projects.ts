@@ -13,9 +13,32 @@ export type Project = {
   liveUrl?: string;
   caseStudyRoute?: string;
   externalDocUrl?: string;
+  doi?: string;
 };
 
 export const projects: Project[] = [
+  {
+    id: "ai-security-report",
+    title: "The Whack-a-Mole Effect in AI Code Repair",
+    subtitle: "Static-Analysis Findings & Complexity After Scanner-Guided Fixes",
+    type: "featured",
+    maturity: "RESEARCH",
+    technologies: ["Python", "CodeQL", "LLMSecEval", "Qwen2.5-Coder", "Radon", "SAST", "AST"],
+    capabilities: [
+      "scanner-guided program repair",
+      "CodeQL SARIF taint-flow analysis",
+      "vulnerability persistence auditing",
+      "secondary alert detection",
+      "Radon cyclomatic complexity & LOC",
+      "LLMSecEval benchmark integration"
+    ],
+    repository: "jackyhitter / AI_security_report",
+    githubUrl: "https://github.com/jackyhitter/AI_security_report",
+    externalDocUrl: "https://zenodo.org/records/23297055?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImQ4ZDZkOTgxLWY4NGQtNGI4NC1iZTQwLTc0ZmU3N2M2MWFhYyIsImRhdGEiOnt9LCJyYW5kb20iOiJiYjg0MGZjYjRhNDA1MWQ5NGExZTllZThhY2EzNzRhZiJ9.o1bx-7O4pgSJqBFay8n07MZNBXbZaGGTbOmvxIBZKufDrhDwRMFAMLyMkrfoEomdMTR8aO6dO2xe6yBhYqgUCw",
+    doi: "10.5281/zenodo.23297055",
+    description: "Empirical software security investigation evaluating whether scanner-guided fixes for AI-generated Python code eliminate CodeQL alerts, leave vulnerabilities unresolved (vulnerability inertia), trigger secondary findings, or increase structural code complexity.",
+    architecture: ["LLMSecEval Benchmark", "Baseline Generation (Qwen2.5-Coder-1.5B)", "CodeQL Security Scan", "Diagnostic Extraction", "Scanner-Guided Fix Loop", "Post-Repair Static Analysis", "Radon Complexity & LOC"]
+  },
   {
     id: "la-peace",
     title: "LA PEACE",

@@ -84,6 +84,13 @@ const WorkRow = ({ project, idx }: { project: (typeof projects)[0]; idx: number 
            style={{ color: 'var(--text-dim)' }}>
           [OPEN REPO ↗]
         </a>
+        {project.externalDocUrl && (
+          <a href={project.externalDocUrl} target="_blank" rel="noopener noreferrer" aria-label={`Zenodo Preprint for ${project.title}`}
+             className="font-code text-tiny hover:text-white transition-colors flex items-center gap-2"
+             style={{ color: 'var(--tag-color)' }}>
+            [ZENODO PREPRINT ↗]
+          </a>
+        )}
         {project.liveUrl && (
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`Live Demo for ${project.title}`}
              className="font-code text-tiny hover:text-white transition-colors flex items-center gap-2"
@@ -91,13 +98,18 @@ const WorkRow = ({ project, idx }: { project: (typeof projects)[0]; idx: number 
             [LIVE DEMO ↗]
           </a>
         )}
+        {project.doi && (
+          <span className="font-code text-[9px] mt-1 text-right" style={{ color: 'var(--text-dim)', opacity: 0.6 }}>
+            DOI: {project.doi}
+          </span>
+        )}
       </div>
     </div>
   );
 };
 
 const SelectedWork = () => {
-  const featured = projects.filter(p => p.type === 'featured').slice(0, 3);
+  const featured = projects.filter(p => p.type === 'featured');
 
   return (
     <section id="work" className="section container border-t">

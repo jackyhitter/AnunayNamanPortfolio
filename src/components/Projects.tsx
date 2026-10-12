@@ -23,13 +23,19 @@ const Projects = () => {
                 ))}
               </div>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="font-mono text-tiny flex items-center gap-2 hover:text-accent transition-colors">
                   <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> REPOSITORY
                 </a>
-                <button className="font-mono text-tiny flex items-center gap-2 hover:text-accent transition-colors">
-                  <ExternalLink size={14} /> CASE STUDY
-                </button>
+                {project.externalDocUrl ? (
+                  <a href={project.externalDocUrl} target="_blank" rel="noopener noreferrer" className="font-mono text-tiny flex items-center gap-2 hover:text-accent transition-colors">
+                    <ExternalLink size={14} /> PREPRINT / ZENODO
+                  </a>
+                ) : (
+                  <button className="font-mono text-tiny flex items-center gap-2 hover:text-accent transition-colors">
+                    <ExternalLink size={14} /> CASE STUDY
+                  </button>
+                )}
               </div>
             </div>
             
@@ -42,6 +48,21 @@ const Projects = () => {
                 }}></div>
                 
                 <div className="relative z-10 text-center font-mono text-small text-muted max-w-md">
+                   {project.id === 'ai-security-report' && (
+                     <div className="flex flex-col gap-3 w-full max-w-sm text-left">
+                        <div className="border border-[#27272a] p-3 bg-black flex justify-between items-center text-[11px]">
+                          <span className="text-red-400 font-mono">[ CWE-601: URL Redirection ]</span>
+                          <span className="text-dim">CodeQL Alert</span>
+                        </div>
+                        <div className="text-[10px] text-accent font-mono flex items-center justify-center gap-2">
+                          <span>── diagnostic repair loop ──</span>
+                        </div>
+                        <div className="border border-[#27272a] p-3 bg-black flex justify-between items-center text-[11px]">
+                          <span className="text-emerald-400 font-mono">[ Resolved: py/flask-debug ]</span>
+                          <span className="text-amber-400 font-mono">[ 75% Inertia ]</span>
+                        </div>
+                     </div>
+                   )}
                    {project.id === 'la-peace' && (
                      <div className="flex flex-col gap-4">
                         <div className="border border-[#27272a] p-4 bg-black">

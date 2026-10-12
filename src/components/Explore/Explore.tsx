@@ -22,7 +22,7 @@ const rooms: Room[] = [
     color: '#2563eb',
     icon: '⬡',
     link: '#work',
-    objects: ['LA PEACE', 'ML_PROJECT', 'OfflineMarket']
+    objects: ['AI CODE SECURITY', 'LA PEACE', 'ML_PROJECT']
   },
   {
     id: 'lab',
